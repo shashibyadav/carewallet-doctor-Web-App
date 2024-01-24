@@ -67,6 +67,7 @@ const PatientList = () => {
       firstName: firstName,
     });
     console.log('Search for:', { firstName,lastName, dob });
+    navigate('/PatientData');
   };
   
   function createData(firstName,lastName, dob, patientNumber) {
@@ -116,7 +117,8 @@ const PatientList = () => {
                   <TableCell align="right">{row.patientNumber}</TableCell>
                   <TableCell align='right'>
                   <div className="search-action">
-                <button onClick={{handleView}}>View</button></div>
+                    <button onClick={handleView}>View</button>
+                  </div>
                   </TableCell>
                 </TableRow>
               ))}

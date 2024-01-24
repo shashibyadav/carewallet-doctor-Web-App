@@ -19,8 +19,8 @@ const Landing = () => {
       ...criteria,
       password: password,
     });
-    console.log('Search for:', { NPI, password });
-    // navigate('/PatientList');
+    // console.log('Search for:', { NPI, password });
+    navigate('/LandingPage');
   };
 
   return (
@@ -43,8 +43,9 @@ const Landing = () => {
             onChange={(e) => setPassword(e.target.value)} 
           />
           <div className="search-action">
-            <button onClick={{handleSearch}}>Search</button>
-      </div>
+            <button onClick={handleSearch}>Login</button>
+          </div>
+
         </div>
       </CentreRectangle>
     </div>

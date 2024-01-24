@@ -54,6 +54,7 @@ const PatientList = () => {
       firstName: firstName,
     });
     console.log('Search for:', { firstName, lastName, dob, phoneNumber, email, address, city, state, zipcode, insuranceName, policyHName, policyNumber, groupNumber, policyHDOB });
+    navigate('/PatientData');
   };
 
   return (
