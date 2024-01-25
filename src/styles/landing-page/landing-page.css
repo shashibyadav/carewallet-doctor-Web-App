@@ -1,0 +1,12 @@
+.landing-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1C1C1D;
+    .header-text {
+        color: white;
+    }
+    .button-style {
+        width: 100px;
+        height: 20px;
+    }
+}

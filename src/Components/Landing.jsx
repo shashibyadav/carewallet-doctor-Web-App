@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setLoginCredentials as setCriteriaAction } from '../ReduxStore/Slices/Login/loginCredSlice';
 import CentreRectangle from '../shared/CentreRectangle';
 import { useNavigate } from 'react-router-dom';
+import ButtonTypeOne from "./ButtonTypeOne";
+import "../styles/landing-page/landing-page.css"
 
 const Landing = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
@@ -24,10 +26,10 @@ const Landing = () => {
   };
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}>
+    <div className={'landing-page'}>
       <CentreRectangle>
         <div>
-        <div>Doctor Login</div>
+        <div className={'header-text'}>Doctor Login</div>
           <input
             className='search-fields'
             type="text"
@@ -45,9 +47,16 @@ const Landing = () => {
           <div className="search-action">
             <button onClick={handleSearch}>Login</button>
           </div>
-
         </div>
       </CentreRectangle>
+
+      <ButtonTypeOne
+          onClick={() => {
+            console.log("Shashi")
+          }}
+          text={'next'}
+          classname={'button-style'}
+      />
     </div>
   );
 };
