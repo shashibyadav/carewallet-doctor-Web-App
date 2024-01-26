@@ -46,11 +46,13 @@ const Landing = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)} 
           />
-          <ButtonTypeOne
-              onClick={handleSearch}
-              text={'Search'}
-              classname={'button-style'}
-          />
+          <div className={`button-holder`}>
+            <ButtonTypeOne
+                onClick={handleSearch}
+                text={'Login'}
+                classname={'button-style'}
+            />
+          </div>
         </div>
       </CentreRectangle>
 
