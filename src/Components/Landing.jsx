@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setLoginCredentials as setCriteriaAction } from '../ReduxStore/Slices/Login/loginCredSlice';
 import CentreRectangle from '../shared/CentreRectangle';
 import { useNavigate } from 'react-router-dom';
-import ButtonTypeOne from "./ButtonTypeOne";
+import ButtonTypeOne from "./shared/ButtonTypeOne";
 import "../styles/landing-page/landing-page.css"
+import LogoHeader from "./shared/LogoHeader";
 
 const Landing = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
@@ -27,8 +28,9 @@ const Landing = () => {
 
   return (
     <div className={'landing-page'}>
+      <LogoHeader />
       <CentreRectangle>
-        <div>
+        <div className={`content-holder`}>
         <div className={'header-text'}>Doctor Login</div>
           <input
             className='search-fields'
@@ -44,19 +46,14 @@ const Landing = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)} 
           />
-          <div className="search-action">
-            <button onClick={handleSearch}>Login</button>
-          </div>
+          <ButtonTypeOne
+              onClick={handleSearch}
+              text={'Search'}
+              classname={'button-style'}
+          />
         </div>
       </CentreRectangle>
 
-      <ButtonTypeOne
-          onClick={() => {
-            console.log("Shashi")
-          }}
-          text={'next'}
-          classname={'button-style'}
-      />
     </div>
   );
 };

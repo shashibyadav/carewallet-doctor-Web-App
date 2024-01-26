@@ -1,26 +1,27 @@
-import React, {useRef, useState} from "react";
-import "../shared/buttonTypeOne.css"
+import React, {useState} from "react";
+import "../../shared/buttonTypeOne.css"
 
 const ButtonTypeOne = (props = {}) => {
-    const { onClick, text = ``, classname = `` } = props;
+    const { onClick, text = ``, classname = `` , triggerClickInstantly = false} = props;
     const [ ripple,  setRipple ] = useState(false);
     const [showSpan, setShowSpan] = useState(false);
-    const parentRef = useRef(null);
     const [x, setX] = useState();
     const [y, setY] = useState();
     const onClickTrigger = (e) => {
         setRipple(true);
         setShowSpan(true);
-        let x = e.clientX - e.target.offsetLeft;
+        const rectangle = e.target.getBoundingClientRect();
+        let x = e.clientX - rectangle.left;
 
         // Get position of Y
-        let y = e.clientY - e.target.offsetTop;
+        let y = e.clientY - rectangle.top;
         setX(x); setY(y);
         setTimeout(() => {
             setRipple(false)
             setShowSpan(false);
-        }, 1000)
-        onClick && onClick(e);
+            !triggerClickInstantly && onClick && onClick(e);
+        }, 200)
+        triggerClickInstantly && onClick && onClick(e);
     }
     return <>
         <div className={"button-type-one " + classname} onClick={onClickTrigger}>

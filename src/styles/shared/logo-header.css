@@ -1,0 +1,10 @@
+.logo-header {
+    height: 20%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    .logo-header-img {
+
+    }
+}
