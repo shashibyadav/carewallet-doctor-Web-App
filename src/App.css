@@ -98,16 +98,6 @@ input[type="text"] {
   margin-top: 0;
 }
 
-.search-fields input {
-  display: block;
-  width: 30%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  align-items: center;
-}
-
 .container {
   height: 100vh;
   display: flex;

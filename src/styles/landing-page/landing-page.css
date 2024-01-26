@@ -27,4 +27,14 @@
         text-align: right;
         margin-top: 4%;
     }
+
+    .search-fields {
+        display: block;
+        width: 130%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        align-items: center;
+      }
 }

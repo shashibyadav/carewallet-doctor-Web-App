@@ -4,12 +4,14 @@ import { setLoginCredentials as setCriteriaAction } from '../ReduxStore/Slices/L
 import CentreRectangle from '../shared/CentreRectangle';
 import { useNavigate } from 'react-router-dom';
 import ButtonTypeOne from "./shared/ButtonTypeOne";
-import "../styles/landing-page/landing-page.css"
+import "../styles/landing-page/landing-page.css";
+import "../styles/landing-page/landing-page.css";
 import LogoHeader from "./shared/LogoHeader";
+import InputField from "../shared/inputField";
 
 const Landing = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
-  const [NPI, setNPI] = useState(criteria.NPI);
+  const [NPI, setNpi] = useState(criteria.NPI);
   const [password, setPassword] = useState(criteria.password); 
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
@@ -20,11 +22,23 @@ const Landing = () => {
   const handleSearch = () => {
     updateState({
       ...criteria,
+      NPI: NPI,
       password: password,
     });
     // console.log('Search for:', { NPI, password });
     navigate('/LandingPage');
   };
+
+ 
+
+  const handleNpiChange = (value) => {
+    setNpi(value);
+  };
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+  };
+
 
   return (
     <div className={'landing-page'}>
@@ -32,20 +46,21 @@ const Landing = () => {
       <CentreRectangle>
         <div className={`content-holder`}>
         <div className={'header-text'}>Doctor Login</div>
-          <input
-            className='search-fields'
-            type="text"
-            placeholder="NPI"
-            value={NPI}
-            onChange={(e) => setNPI(e.target.value)}
-          />
-          <input
-            className='search-fields'
-            type="text"
-            placeholder="Password" 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} 
-          />
+      
+           <InputField
+              className='search-fields'
+              value={NPI}
+              placeholder="NPI"
+              onChange={handleNpiChange}
+            />
+
+          <InputField
+                className='search-fields'
+                value={password}
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              />
+         
           <div className={`button-holder`}>
             <ButtonTypeOne
                 onClick={handleSearch}
