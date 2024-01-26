@@ -1,0 +1,29 @@
+.heading{
+    color: white;
+    align-items: center;
+    width: 100%; 
+    height: 100%; 
+    text-align: center; 
+    color: white; 
+    font-size: 30px; 
+    font-family: Inter; 
+    font-weight: 700; 
+    word-wrap: 'break-word';
+    padding-top: 10%;
+}
+
+.headinglogo{
+    width: 100%; 
+    height: 100%;
+}
+
+.dark-background {
+    width: '100vw';
+    height: '100vh';
+    background-color: black;
+}
+
+.inputfield{
+    color: white;
+    padding-bottom: 2%;
+}
