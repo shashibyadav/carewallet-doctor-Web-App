@@ -1,75 +1,78 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../App.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { setLoginCredentials as setCriteriaAction } from '../ReduxStore/Slices/Login/loginCredSlice';
 import CentreRectangle from '../shared/CentreRectangle';
-import { setPatientSearchCriteria as setCriteriaAction } from '../ReduxStore/Slices/Login/loginSlice';
+import { useNavigate } from 'react-router-dom';
+import ButtonTypeOne from "./shared/ButtonTypeOne";
+import "../styles/landing-page/landing-page.css";
+import "../styles/landing-page/landing-page.css";
+import LogoHeader from "./shared/LogoHeader";
+import InputField from "../shared/inputField";
 
-const LandingPage = () => {
+const Landing = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
-  const [lastName, setLastName] = useState(criteria.lastName);
-  const [firstName, setFirstName] = useState(criteria.firstName);
-  const [phone, setPhone] = useState(criteria.phone);
-  const [dob, setDob] = useState(criteria.dob);
-  const navigate = useNavigate(); 
+  const [NPI, setNpi] = useState(criteria.NPI);
+  const [password, setPassword] = useState(criteria.password); 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate(); 
   const updateState = (newCriteria) => {
     dispatch(setCriteriaAction(newCriteria));
   };
+
   const handleSearch = () => {
     updateState({
-        ...criteria,
-        firstName : firstName,
-    })
-    console.log('Search for:', { lastName, firstName, phone, dob });
-    navigate('/PatientList');
+      ...criteria,
+      NPI: NPI,
+      password: password,
+    });
+    // console.log('Search for:', { NPI, password });
+    navigate('/LandingPage');
   };
 
+ 
+
+  const handleNpiChange = (value) => {
+    setNpi(value);
+  };
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+  };
+
+
   return (
-  <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}> 
-        <CentreRectangle> 
-        <div >
-        <div style={{padding:'5%'}} className='heading'>Patient Search</div>
-        <input
-        style={{width:'50%'}}
-        className="search-fields"
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-        style={{width:'50%'}}
-          className="search-fields"
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-        style={{width:'50%'}}
-        className="search-fields"
-          type="text"
-          placeholder="Patient Mobile Number"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <input
-        style={{width:'51%',padding:'1.8%'}}
-          className="search-fields"
-          type="date"
-          placeholder="Date of Birth (calendar)"
-          value={dob}
-          onChange={(e) => setDob(e.target.value)}
-        />
-        <div className="search-action">
-          <button style={{marginTop:'5%'}} onClick={handleSearch}>SEARCH</button>
-      </div>
-      </div>
-        </CentreRectangle>
+    <div className={'landing-page'}>
+      <LogoHeader />
+      <CentreRectangle>
+        <div className={`content-holder`}>
+        <div className={'header-text'}>Doctor Login</div>
+        <div className={'input-field-container'}>
+           <InputField
+              className='search-fields'
+              value={NPI}
+              placeholder="NPI"
+              onChange={handleNpiChange}
+            />
+
+          <InputField
+                className='search-fields'
+                value={password}
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              />
+            </div>
+          <div className={`button-holder`}>
+            <ButtonTypeOne
+                onClick={handleSearch}
+                text={'Login'}
+                classname={'button-style'}
+            />
+          </div>
         </div>
+      </CentreRectangle>
+
+    </div>
   );
 };
 
-export default LandingPage;
+export default Landing;

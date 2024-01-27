@@ -1,10 +1,12 @@
 // InputField.js
 
 import React from 'react';
+import "../shared/inputField.css";
+
 
 const InputField = ({ label, value, onChange, placeholder, className }) => {
   return (
-    <div>
+    <div className='input-field'>
       <label>{label}</label>
       <input
         type="text"

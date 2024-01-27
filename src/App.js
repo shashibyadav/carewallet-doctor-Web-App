@@ -3,9 +3,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CareWalletLogo from './images/CareWalletLogo.png';
 import LandingPage from './Components/LandingPage';
+import PatientSearch from './Components/PatientSearch';
 import PatientList from './Components/PatientList';
 import PatientData from './Components/PatientData';
-import Landing from './Components/Landing';
+
+import Landing from './Components/LandingPage';
 import { store } from './ReduxStore/Setup/Store';
 import { Provider } from 'react-redux';
 
@@ -14,8 +16,8 @@ function App() {
     <Provider store={store}>
     <Router>
       <Routes>
-      <Route path="/" element={<Landing />} />
-        <Route path="/LandingPage" element={<LandingPage />} />
+      <Route path="/" element={<LandingPage />} />
+        <Route path="/LandingPage" element={<PatientSearch />} />
         <Route path="/PatientList" element={<PatientList />} />
         <Route path="/PatientData" element={<PatientData />} />
       </Routes>
