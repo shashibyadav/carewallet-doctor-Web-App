@@ -1,25 +1,12 @@
 import React from 'react';
+import "../../shared/buttonLogOut.css";
 
-const LogoutButton = ({ onClick }) => {
+const ButtonLogOut = ({ onClick }) => {
   return (
-    <button
-      style={{
-        display: 'flex',
-        width:'40%',
-        background: 'none',
-        border: 'none',
-        color: '#FFFFFF', // Set the color as per your design
-        cursor: 'pointer',
-        marginLeft: '10rem',
-        justifyContent: 'right',
-        alignItems: 'right',
-        fontSize: 'inherit',
-      }}
-      onClick={onClick}
-    >
+    <button className="button-log-out" onClick={onClick}>
       Log Out
     </button>
   );
 };
 
-export default LogoutButton;
+export default ButtonLogOut;

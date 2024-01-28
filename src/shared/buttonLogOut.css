@@ -1,0 +1,13 @@
+.button-log-out {
+    display: flex;
+    width: 40%;
+    background: none;
+    border: none;
+    color: #FFFFFF; 
+    cursor: pointer;
+    /* margin-left: auto; */
+    justify-content: flex-end; 
+    
+    font-size: inherit;
+  }
+  

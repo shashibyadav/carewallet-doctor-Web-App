@@ -53,6 +53,14 @@ const LandingPage = () => {
     setDob(value);
   };
 
+  const handlePatientidChange = (value) => {
+    setPatientId(value);
+  };
+
+  const handleNPIChange = (value) => {
+    setNPI(value);
+  };
+
 
   const handleLogout = () => {
   
@@ -67,20 +75,25 @@ const LandingPage = () => {
      
  
       <div className={'auto-fill'}>
-
-   
-
+        
+      <div className={'auto-fill-logout'}>
         <InputField
-          className='search-fields'
+          className='search-fields auto-fill-patientid'
           value={patientid}
           placeholder="Patient ID (NFC auto-fill)"
+          onChange={handlePatientidChange}
         
         />
 
+        <LogOutButton/>
+
+        </div>
+
         <InputField
-          className='search-fields'
+          className='search-fields auto-fill-npi'
           value={NPI}
           placeholder="NPI (auto-fill)"
+          onChange={handleNPIChange}
           
         />
 
@@ -116,7 +129,7 @@ const LandingPage = () => {
               placeholder="Patient Phone #"
               onChange={handlePhoneChange}
             />
-
+            <div className='search-fields-text'> OR </div>
             <InputField
               className='search-fields'
               value={dob}
