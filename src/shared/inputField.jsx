@@ -1,7 +1,7 @@
 // InputField.js
 
 import React from 'react';
-import "../shared/inputField.css";
+import "./inputField.css";
 
 
 const InputField = ({ value, onChange, placeholder, className }) => {
@@ -13,7 +13,7 @@ const InputField = ({ value, onChange, placeholder, className }) => {
         value={value || ''} 
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={className}
+        className={"input-field-type-one " + className}
       />
   
   );

@@ -10,8 +10,8 @@ import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
 
 const LandingPage = () => {
-  const criteria = useSelector((state) => state.loginState.searchCriteria);
-  const [NPI, setNpi] = useState(criteria.NPI);
+  const criteria = useSelector((state) => state.loginCredState.loginCredentials);
+  const [NPI, setNpi] = useState(criteria.npi);
   const [password, setPassword] = useState(criteria.password); 
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
