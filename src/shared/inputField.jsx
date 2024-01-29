@@ -4,10 +4,10 @@ import React from 'react';
 import "../shared/inputField.css";
 
 
-const InputField = ({ label, value, onChange, placeholder, className }) => {
+const InputField = ({ value, onChange, placeholder, className }) => {
   return (
-    <div className='input-field'>
-      <label>{label}</label>
+    
+      
       <input
         type="text"
         value={value || ''} 
@@ -15,7 +15,7 @@ const InputField = ({ label, value, onChange, placeholder, className }) => {
         placeholder={placeholder}
         className={className}
       />
-    </div>
+  
   );
 };
 

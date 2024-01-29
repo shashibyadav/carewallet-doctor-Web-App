@@ -7,45 +7,20 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
-import CentreRectangle2 from '../shared/CentreRectangle2';
 import { useSelector, useDispatch } from 'react-redux';
+import CentreRectangle from '../shared/CentreRectangle';
 import '../shared/button.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { setPatientCriteria as setCriteriaAction } from '../ReduxStore/Slices/Search/searchSlice';
 import { brown } from '@mui/material/colors';
+import "../styles/patient-list/patient-list.css";
+import InputField from "../shared/inputField";
+import ButtonTypeOne from "./shared/ButtonTypeOne";
 
-const CentreRectangle3 = ({ children }) => {
-  return (
-    <div style={{textAlign:'center'}}>
-      <div style={{
-        position: 'absolute',
-        top: '55%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        display: 'flex',
-        width: '70%',
-        height: '50%',
-        background: 'rgba(217, 217, 217, 0)',
-        borderRadius: '10px',
-        border: '3px white solid',
-        color: 'white',
-      }}>
-        {children}
-    </div>
-    </div>
-  );
-};
 
 const accent = brown['400']; 
-
-const inputProps = {
-  style: {
-    height: '5px',
-    color: accent, 
-  },
-};
 
 
 const whiteTheme = createTheme({ palette: { primary: {main:accent} } })
@@ -73,6 +48,20 @@ const PatientList = () => {
   function createData(firstName,lastName, dob, patientNumber) {
     return { firstName,lastName, dob, patientNumber};
   }
+
+  const handleFirstNameChange = (value) => {
+    setFirstName(value);
+  };
+
+  const handleLastNameChange = (value) => {
+    setLastName(value);
+  };
+
+  const handleDOBChange = (value) => {
+    setdob(value);
+  };
+  
+  
   
   const rows = [
     createData('John','Smith', '12-01-2022', '734-221-3024'),
@@ -81,43 +70,67 @@ const PatientList = () => {
   ];
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#f8f6f1' }}> 
-        <CentreRectangle2>
+    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}> 
+        <CentreRectangle className='center-rectangle-2'>
         <ThemeProvider theme={whiteTheme}>
-          <div style={{ padding:'5%', alignItems:'center'}}>
-          <TextField label="First Name" margin="normal" inputProps={inputProps} value={firstName} style={{marginRight:'5px'}} onChange={(e) => setFirstName(e.target.value)}/>
-          <TextField id="outlined-basic"  margin="normal"label="Last Name" variant="outlined" color="primary" inputProps={inputProps}  value={lastName} style={{marginRight:'5px'}} onChange={(e) => setLastName(e.target.value)}/>
-          <TextField id="outlined-basic"  margin="normal" label="Date of Birth" variant="outlined"  color="primary" inputProps={inputProps} value={dob} onChange={(e) => setdob(e.target.value)}/>
+          <div className='input-fields-container'>
+
+          <InputField
+                className='search-fields'
+                value={firstName}
+                placeholder="First Name"
+                onChange={handleFirstNameChange}
+              />
+
+            
+          <InputField
+                className='search-fields lastname-field'
+                value={lastName}
+                placeholder="Last Name"
+                onChange={handleLastNameChange}
+              />
+
+          <InputField
+                className='search-fields  dob-field'
+                value={dob}
+                placeholder="Date of Birth (calendar)"
+                onChange={handleDOBChange}
+              />
+          
           </div>
-          <CentreRectangle3>
-          <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Patient First Name</TableCell>
-                <TableCell>Patient Last Name</TableCell>
-                <TableCell align="right">Date of Birth</TableCell>
-                <TableCell align="right">Patient #</TableCell>
-                <TableCell align="right">View Details</TableCell>
+          <CentreRectangle className='center-rectangle-3' >
+          <TableContainer component={Paper}  className='center-rectangle-3-table' >
+          <Table className='center-rectangle-3-table' sx={{ minWidth: 400 }} aria-label="simple table" >
+            <TableHead >
+              <TableRow >
+                <TableCell  style={{ color: 'white' }}>Patient First Name</TableCell>
+                <TableCell  style={{ color: 'white' }}>Patient Last Name</TableCell>
+                <TableCell  style={{ color: 'white' }} align="right">Date of Birth</TableCell>
+                <TableCell  style={{ color: 'white' }} align="right">Patient #</TableCell>
+                <TableCell  style={{ color: 'white' }} align="right">View Details</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
+            <TableBody color='white'>
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th"  scope="row"  style={{ color: 'white' }}>
                     {row.firstName}
                   </TableCell>
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row"  style={{ color: 'white' }}>
                     {row.lastName}
                   </TableCell>
-                  <TableCell align="right">{row.dob}</TableCell>
-                  <TableCell align="right">{row.patientNumber}</TableCell>
-                  <TableCell align='right'>
+                  <TableCell  style={{ color: 'white' }} align="right">{row.dob}</TableCell>
+                  <TableCell  style={{ color: 'white' }} align="right">{row.patientNumber}</TableCell>
+                  <TableCell  style={{ color: 'white' }} align='right'>
                   <div className="search-action">
-                    <button onClick={handleView}>View</button>
+                  <ButtonTypeOne
+                      onClick={handleView}
+                      text={'View'}
+                      classname={'button-style'}
+                  />
                   </div>
                   </TableCell>
                 </TableRow>
@@ -125,13 +138,13 @@ const PatientList = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        </CentreRectangle3>
-        <div style={{position:'absolute', left:'45%' , bottom:'25px'}} className="search-action">
-        <button>Patient Search</button></div>
-        <div style={{position:'absolute', right:'5%' , top:'5%'}} className="search-action">
-        <button>Log Out</button></div>
+        </CentreRectangle>
+        {/* <div style={{position:'absolute', left:'45%' , bottom:'25px'}} className="search-action">
+        <button>Patient Search</button></div> */}
+        {/* <div style={{position:'absolute', right:'5%' , top:'5%'}} className="search-action">
+        <button>Log Out</button></div> */}
         </ThemeProvider>
-        </CentreRectangle2>
+        </CentreRectangle>
         </div>
       );
 }

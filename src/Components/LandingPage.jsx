@@ -9,7 +9,7 @@ import "../styles/landing-page/landing-page.css";
 import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
 
-const Landing = () => {
+const LandingPage = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
   const [NPI, setNpi] = useState(criteria.NPI);
   const [password, setPassword] = useState(criteria.password); 
@@ -43,7 +43,7 @@ const Landing = () => {
   return (
     <div className={'landing-page'}>
       <LogoHeader />
-      <CentreRectangle>
+      <CentreRectangle className='center-rectangle'>
         <div className={`content-holder`}>
         <div className={'header-text'}>Doctor Login</div>
         <div className={'input-field-container'}>
@@ -75,4 +75,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default LandingPage;

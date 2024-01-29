@@ -11,7 +11,7 @@ import LogoFooter from "./shared/LogoFooter";
 import LogOutButton from "./shared/ButtonLogOut.jsx";
 
 
-const LandingPage = () => {
+const PatientSearch = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
   const [patientid, setPatientId] = useState(criteria.patientid);
   const [NPI, setNPI] = useState(criteria.npi);
@@ -101,7 +101,7 @@ const LandingPage = () => {
       
       
 
-      <CentreRectangle>
+      <CentreRectangle className='center-rectangle'>
         <div className={`content-holder`}>
           <div className={'header-text'}>Patient Search</div>
 
@@ -153,4 +153,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default PatientSearch;

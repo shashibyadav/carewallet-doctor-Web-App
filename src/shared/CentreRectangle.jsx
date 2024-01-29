@@ -1,8 +1,8 @@
 import "../styles/shared/center-rectangle.css";
 
-const CentreRectangle = ({ children }) => {
+const CentreRectangle = ({className, children }) => {
     return (
-        <div className={'center-rectangle'}>
+        <div className={`${className}`}>
           {children}
       </div>
     );
