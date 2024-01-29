@@ -16,7 +16,7 @@
 }
 
 
-.search-fields {
+.patientdata-search-fields {
     display: flex;
     height: 20%;
     width: 100%;
@@ -25,19 +25,16 @@
     border-radius: 5px;
     box-sizing: border-box;
     margin-right: 0rem;
-    text-align: left;
-    justify-content: left;
-    align-items:flex-start;
     background-color: transparent;
     color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
   }
 
-  .search-fields::placeholder {
+  .patientdata-search-fields::placeholder {
     color: #FFF;
-
-    /* text-align: left;
-    justify-content: left;
-    align-items:flex-start; */
   
     font-size: 1rem;
     font-style: normal;

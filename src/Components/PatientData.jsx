@@ -76,7 +76,7 @@ const PatientList = () => {
               <div className='input-container'>
                 <img src={copyicon} alt="Copy Icon" className="copy-icon"  />
                 <input
-                  className='search-fields'
+                  className='patientdata-search-fields'
                   value={phoneNumber}
                   placeholder="Phone Number"
                   onChange={(e) => setPhoneNumber(e.target.value)}
@@ -85,7 +85,7 @@ const PatientList = () => {
               <div className='input-container'>
                 <img src={copyicon} alt="Copy Icon" className="copy-icon"  />
                 <input
-                  className='search-fields'
+                  className='patientdata-search-fields'
                   value={email}
                   placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
