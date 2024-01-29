@@ -56,10 +56,16 @@ const PatientSearch = () => {
 
   const handlePatientidChange = (value) => {
     setPatientId(value);
+    navigate('/PatientData');
+    setTimeout(() => {
+      console.log("Delayed for 1 second.");
+    }, "300");
+    
   };
 
   const handleNPIChange = (value) => {
     setNPI(value);
+  
   };
 
 
