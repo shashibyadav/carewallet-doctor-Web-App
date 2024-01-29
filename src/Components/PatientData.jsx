@@ -12,8 +12,13 @@ import { setPatientDataCriteria as setCriteriaAction } from '../ReduxStore/Slice
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { brown } from '@mui/material/colors';
 import patientimg from '../images/patient_img.png';
+
+import copyicon from '../images/copy_icon.png';
 import GreenCheckmark from '../images/GreenCheckmark.png';
 import ButtonTypeOne from '../shared/buttonTypeOne';
+import InputField from "../shared/inputField";
+import CentreRectangle from '../shared/CentreRectangle';
+import "../styles/patient-data/patient-data.css";
 
 const accent = brown['400'];
 
@@ -58,15 +63,36 @@ const PatientList = () => {
   };
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: 'f8f6f1' }}>
-      <CentreRectangle2>
-        <ThemeProvider theme={whiteTheme}>
-          <Grid style={{ padding: '2%'}} container>
-            <Grid item xs={4}>
-              <h3 style={{ color: 'brown' }}>Patient: Evan Smith</h3>
-              <img src={patientimg} alt="Care Wallet Logo" style={{ height: '40%', width: '60%', margin: '10px' }} />
-              <TextField margin="normal" label="Phone Number" inputProps={inputProps} value={phoneNumber} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setPhoneNumber(e.target.value)} />
-              <TextField margin="normal" label="Email" inputProps={inputProps} value={email} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setEmail(e.target.value)} />
+    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}>
+      <CentreRectangle className='center-rectangle-2'>
+       
+          <Grid style={{ padding: '2%'}} container >
+            <Grid item xs={4} container justifyContent="center" alignItems="center">
+            <h3 style={{ color: 'white', width: '100%', justifyContent: 'center', textAlign: 'center',fontSize: '1.5rem',fontWeight:'400' }}>
+  Patient: <span style={{ fontSize: '1.5rem',fontWeight:'700'   }}>Evan Smith</span>
+</h3>
+
+              <img src={patientimg} alt="Care Wallet Logo" style={{ height: '40%', width: '40%', margin: '10px' }} />
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon"  />
+                <input
+                  className='search-fields'
+                  value={phoneNumber}
+                  placeholder="Phone Number"
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </div>
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon"  />
+                <input
+                  className='search-fields'
+                  value={email}
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              {/* <TextField margin="normal" label="Phone Number" inputProps={inputProps} value={phoneNumber} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setPhoneNumber(e.target.value)} /> */}
+           
             </Grid>
             <Grid item xs={4}>
               <TextField label="First Name" margin="normal" className='input-field' inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -96,8 +122,8 @@ const PatientList = () => {
       </div>
             </Grid>
           </Grid>
-        </ThemeProvider>
-      </CentreRectangle2>
+     
+      </CentreRectangle>
     </div>
   );
 }

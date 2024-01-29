@@ -48,14 +48,14 @@ const LandingPage = () => {
         <div className={'header-text'}>Doctor Login</div>
         <div className={'input-field-container'}>
            <InputField
-              className='search-fields'
+              className='landingpage-search-fields'
               value={NPI}
               placeholder="NPI"
               onChange={handleNpiChange}
             />
 
           <InputField
-                className='search-fields'
+                className='landingpage-search-fields'
                 value={password}
                 placeholder="Password"
                 onChange={handlePasswordChange}

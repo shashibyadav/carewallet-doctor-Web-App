@@ -78,7 +78,7 @@ const PatientSearch = () => {
         
       <div className={'auto-fill-logout'}>
         <InputField
-          className='search-fields auto-fill-patientid'
+          className='patientsearch-search-fields auto-fill-patientid'
           value={patientid}
           placeholder="Patient ID (NFC auto-fill)"
           onChange={handlePatientidChange}
@@ -90,7 +90,7 @@ const PatientSearch = () => {
         </div>
 
         <InputField
-          className='search-fields auto-fill-npi'
+          className='patientsearch-search-fields auto-fill-npi'
           value={NPI}
           placeholder="NPI (auto-fill)"
           onChange={handleNPIChange}
@@ -109,14 +109,14 @@ const PatientSearch = () => {
 
             <div className='name-container'>
               <InputField
-                className='search-fields lastname'
+                className='patientsearch-search-fields lastname'
                 value={lastName}
                 placeholder="LastName"
                 onChange={handleLastNameChange}
               />
 
               <InputField
-                className='search-fields firstname'
+                className='patientsearch-search-fields firstname'
                 value={firstName}
                 placeholder="FirstName"
                 onChange={handleFirstNameChange}
@@ -124,14 +124,14 @@ const PatientSearch = () => {
             </div>
 
             <InputField
-              className='search-fields'
+              className='patientsearch-search-fields'
               value={phone}
               placeholder="Patient Phone #"
               onChange={handlePhoneChange}
             />
-            <div className='search-fields-text'> OR </div>
+            <div className='patientsearch-search-fields-text'> OR </div>
             <InputField
-              className='search-fields'
+              className='patientsearch-search-fields'
               value={dob}
               placeholder="Date of Birth (calendar)"
               onChange={handleDateChange}

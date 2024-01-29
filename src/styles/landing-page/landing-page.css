@@ -33,7 +33,7 @@
         margin-left: auto; 
     }
 
-    .search-fields {
+    .landingpage-search-fields {
         display: flex;
         box-sizing: border-box;
         width: 100%;
@@ -45,11 +45,11 @@
         align-items: center;
         justify-content: center;
         align-items: center;   
-        background-color: #666666;
+        background-color:  rgba(102, 102, 102, 0.30);
         color: white;
       }
 
-      .search-fields::placeholder {
+      .landingpage-search-fields::placeholder {
         color: #FFF;
 
         text-align: center;
