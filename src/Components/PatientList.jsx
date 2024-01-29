@@ -18,8 +18,9 @@ import { brown } from '@mui/material/colors';
 import "../styles/patient-list/patient-list.css";
 import InputField from "../shared/inputField";
 import ButtonTypeOne from "./shared/ButtonTypeOne";
-
-
+import ButtonPatientSearch from "./shared/ButtonPatientSearch";
+import LogoFooter from "./shared/LogoFooter";
+import LogOutButton from "./shared/ButtonLogOut.jsx";
 
 const accent = brown['400']; 
 
@@ -72,8 +73,10 @@ const PatientList = () => {
 
   return (
     <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}> 
+          <LogOutButton/>
         <CentreRectangle className='center-rectangle-2'>
         <ThemeProvider theme={whiteTheme}>
+
           <div className='input-fields-container'>
 
           <InputField
@@ -146,7 +149,10 @@ const PatientList = () => {
         <button>Log Out</button></div> */}
         </ThemeProvider>
         </CentreRectangle>
-
+        <ButtonPatientSearch/>
+      
+        <LogoFooter />
+  
         </div>
       );
 }
