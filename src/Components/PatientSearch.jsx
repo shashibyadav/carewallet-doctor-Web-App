@@ -13,8 +13,9 @@ import LogOutButton from "./shared/ButtonLogOut.jsx";
 
 const PatientSearch = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
+  const loginCredCriteria = useSelector((state) => state.loginCredState.loginCredentials);
   const [patientid, setPatientId] = useState(criteria.patientid);
-  const [NPI, setNPI] = useState(criteria.npi);
+  const [NPI, setNPI] = useState(loginCredCriteria.npi);
   const [lastName, setLastName] = useState(criteria.lastName);
   const [firstName, setFirstName] = useState(criteria.firstName);
   const [phone, setPhone] = useState(criteria.phone);

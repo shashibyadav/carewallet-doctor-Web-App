@@ -22,7 +22,7 @@ const LandingPage = () => {
   const handleSearch = () => {
     updateState({
       ...criteria,
-      NPI: NPI,
+      npi: NPI,
       password: password,
     });
     // console.log('Search for:', { NPI, password });
