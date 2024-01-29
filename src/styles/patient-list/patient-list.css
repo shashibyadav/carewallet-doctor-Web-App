@@ -41,7 +41,7 @@
 }
 
 
-.search-fields {
+.patientlist-search-fields {
     display: flex;
     height: 40%;
     width: 15%;
@@ -57,7 +57,7 @@
     color: white;
   }
 
-  .search-fields::placeholder {
+  .patientlist-search-fields::placeholder {
     color: #FFF;
 
     text-align: center;

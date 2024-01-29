@@ -80,7 +80,7 @@ const PatientList = () => {
           <div className='input-fields-container'>
 
           <InputField
-                className='search-fields'
+                className='patientlist-search-fields'
                 value={firstName}
                 placeholder="First Name"
                 onChange={handleFirstNameChange}
@@ -88,14 +88,14 @@ const PatientList = () => {
 
             
           <InputField
-                className='search-fields lastname-field'
+                className='patientlist-search-fields lastname-field'
                 value={lastName}
                 placeholder="Last Name"
                 onChange={handleLastNameChange}
               />
 
           <InputField
-                className='search-fields  dob-field'
+                className='patientlist-search-fields  dob-field'
                 value={dob}
                 placeholder="Date of Birth (calendar)"
                 onChange={handleDOBChange}
@@ -143,10 +143,6 @@ const PatientList = () => {
           </Table>
         </TableContainer>
         </CentreRectangle>
-        {/* <div style={{position:'absolute', left:'45%' , bottom:'25px'}} className="search-action">
-        <button>Patient Search</button></div> */}
-        {/* <div style={{position:'absolute', right:'5%' , top:'5%'}} className="search-action">
-        <button>Log Out</button></div> */}
         </ThemeProvider>
         </CentreRectangle>
         <ButtonPatientSearch/>
