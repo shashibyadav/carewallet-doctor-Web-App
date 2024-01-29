@@ -65,64 +65,168 @@ const PatientList = () => {
   return (
     <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}>
       <CentreRectangle className='center-rectangle-2'>
-       
-          <Grid style={{ padding: '2%'}} container >
-            <Grid item xs={4} container justifyContent="center" alignItems="center">
-            <h3 style={{ color: 'white', width: '100%', justifyContent: 'center', textAlign: 'center',fontSize: '1.5rem',fontWeight:'400' }}>
-  Patient: <span style={{ fontSize: '1.5rem',fontWeight:'700'   }}>Evan Smith</span>
-</h3>
 
-              <img src={patientimg} alt="Care Wallet Logo" style={{ height: '40%', width: '40%', margin: '10px' }} />
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon"  />
-                <input
-                  className='patientdata-search-fields'
-                  value={phoneNumber}
-                  placeholder="Phone Number"
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                />
-              </div>
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon"  />
-                <input
-                  className='patientdata-search-fields'
-                  value={email}
-                  placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              {/* <TextField margin="normal" label="Phone Number" inputProps={inputProps} value={phoneNumber} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setPhoneNumber(e.target.value)} /> */}
+        <div className='grid-container' >
+          <div className='data-grid-1'  >
+            <h3 style={{ color: 'white', width: '100%', justifyContent: 'center', textAlign: 'center', fontSize: '1.5rem', fontWeight: '400' }}>
+              Patient: <span style={{ fontSize: '1.5rem', fontWeight: '700' }}>Evan Smith</span>
+            </h3>
+
+            <img src={patientimg} alt="Care Wallet Logo" style={{ height: '40%', width: '40%', margin: '10px' }} />
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={phoneNumber}
+                placeholder="Phone Number"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={email}
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className='data-grid-2'  >
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={firstName}
+                placeholder="First Name"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={lastName}
+                placeholder="Last Name"
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+
+        
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={address}
+                placeholder="Address"
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={city}
+                placeholder="City"
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={state}
+                placeholder="State"
+                onChange={(e) => setstate(e.target.value)}
+              />
+            </div>
+
+
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={zipcode}
+                placeholder="Zip Code"
+                onChange={(e) => setZipcode(e.target.value)}
+              />
+            </div>
+
+
+
+            <div className="search-action">
+              <ButtonTypeOne text='View ID' className='button-type-one'  ></ButtonTypeOne>
+
+            </div>
+          </div>
+          <div className='data-grid-3'  >
+            <div style={{ display: 'flex' }}><img src={GreenCheckmark} alt="GreenCheckmark" style={{ height: '20%', width: '20%', margin: '10px' }} /><h3 style={{ color: 'green' , width:'10px'}}>Active:01/24/2024</h3></div>
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={insuranceName}
+                placeholder="Insurance Name"
+                onChange={(e) => setinsuranceName(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={policyHName}
+                placeholder="Policyholder Name"
+                onChange={(e) => setpolicyHName(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={policyNumber}
+                placeholder="Policy #"
+                onChange={(e) => setpolicyNumber(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={groupNumber}
+                placeholder="Group #"
+                onChange={(e) => setgroupNumber(e.target.value)}
+              />
+            </div>
+
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={policyHDOB}
+                placeholder="Policyholder DOB"
+                onChange={(e) => setpolicyHDOB(e.target.value)}
+              />
+            </div>
+
+
            
-            </Grid>
-            <Grid item xs={4}>
-              <TextField label="First Name" margin="normal" className='input-field' inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-              <TextField margin="normal" label="Last Name" inputProps={inputProps} value={lastName} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setLastName(e.target.value)} />
-              <TextField margin="normal" label="Date of Birth" inputProps={inputProps} value={dob} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setdob(e.target.value)} />
-              <TextField margin="normal" label="Address" inputProps={inputProps} value={address} style={{width:'80%' ,marginRight:'5px'}}  onChange={(e) => setAddress(e.target.value)} />
-              <TextField margin="normal" label="City" inputProps={inputProps} value={city} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setCity(e.target.value)} />
-              <TextField margin="normal" label="Zip Code" inputProps={inputProps} value={zipcode} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setZipcode(e.target.value)} />
-              <div className="search-action">
-          <ButtonTypeOne style='button-style' text='View ID' className='button-type-one'  ></ButtonTypeOne>
-          <div style={{display:'flex',marginRight:'2px' ,bottom:'0px',alignItems:'center'}}>
-        <div style={{marginRight:'10px'}}><ButtonTypeOne text='Referrals' className='button-style'></ButtonTypeOne></div>
-        <ButtonTypeOne text='Patient Search' className='button-style'></ButtonTypeOne>
-      </div>
-      </div>
-            </Grid>
-            <Grid item xs={4}>
-            <div style={{display:'flex'}}><img src={GreenCheckmark} alt="GreenCheckmark" style={{ height: '20%', width: '20%', margin: '10px' }} /><h3 style={{color:'green'}}>Active:01/24/2024</h3></div>
-              <TextField margin="normal" label="State" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={state} onChange={(e) => setstate(e.target.value)} />
-              <TextField margin="normal" label="Insurance Name" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={insuranceName} onChange={(e) => setinsuranceName(e.target.value)} />
-              <TextField margin="normal" label="Policy Holder DOB" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}}  value={policyHDOB} onChange={(e) => setpolicyHDOB(e.target.value)} />
-              <TextField margin="normal" label="Policy Name" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={policyHName} onChange={(e) => setpolicyHName(e.target.value)} />
-              <TextField margin="normal" label="Group Number" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}}  value={groupNumber} onChange={(e) => setgroupNumber(e.target.value)} />
-              <TextField margin="normal" label="Policy Number" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}}  value={policyNumber} onChange={(e) => setpolicyNumber(e.target.value)} />
-              <div className="search-action">
-            <ButtonTypeOne text='View Insurance' className='button-type-one'  ></ButtonTypeOne>
-      </div>
-            </Grid>
-          </Grid>
-     
+            <div className="search-action">
+              <ButtonTypeOne text='View Insurance' className='button-type-one'  ></ButtonTypeOne>
+            </div>
+            <div className="search-action">
+              <ButtonTypeOne text='View Activity Log' className='button-type-one'  ></ButtonTypeOne>
+            </div>
+          </div>
+        </div>
+
       </CentreRectangle>
     </div>
   );
