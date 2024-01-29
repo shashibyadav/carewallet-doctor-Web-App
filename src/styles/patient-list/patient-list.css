@@ -114,3 +114,12 @@
   align-items: center;
 
   }
+
+  .patient-list-page {
+      .search-button {
+          bottom: 7%;
+          position: absolute;
+          width: 16%;
+          left: 42%;
+      }
+  }

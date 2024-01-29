@@ -72,7 +72,7 @@ const PatientList = () => {
   ];
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}> 
+    <div className={`patient-list-page`} style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}>
           <LogOutButton/>
         <CentreRectangle className='center-rectangle-2'>
         <ThemeProvider theme={whiteTheme}>
@@ -145,7 +145,7 @@ const PatientList = () => {
         </CentreRectangle>
         </ThemeProvider>
         </CentreRectangle>
-        <ButtonPatientSearch/>
+        <ButtonPatientSearch classname={`search-button`} onClick={() => {}} text={`Patient Search`}/>
       
         <LogoFooter />
   
