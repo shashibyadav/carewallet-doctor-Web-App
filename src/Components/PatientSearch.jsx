@@ -56,10 +56,13 @@ const PatientSearch = () => {
 
   const handlePatientidChange = (value) => {
     setPatientId(value);
-    navigate('/PatientData');
     setTimeout(() => {
-      console.log("Delayed for 1 second.");
-    }, "300");
+      console.log("Delayed for 3 seconds.");
+      
+      // After the delay, navigate to '/PatientData'
+      navigate('/PatientData');
+    }, 4000);
+    
     
   };
 
