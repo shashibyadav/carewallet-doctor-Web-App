@@ -20,6 +20,7 @@ import InputField from "../shared/inputField";
 import ButtonTypeOne from "./shared/ButtonTypeOne";
 
 
+
 const accent = brown['400']; 
 
 
@@ -103,11 +104,11 @@ const PatientList = () => {
           <Table className='center-rectangle-3-table' sx={{ minWidth: 400 }} aria-label="simple table" >
             <TableHead >
               <TableRow >
-                <TableCell  style={{ color: 'white' }}>Patient First Name</TableCell>
-                <TableCell  style={{ color: 'white' }}>Patient Last Name</TableCell>
-                <TableCell  style={{ color: 'white' }} align="right">Date of Birth</TableCell>
-                <TableCell  style={{ color: 'white' }} align="right">Patient #</TableCell>
-                <TableCell  style={{ color: 'white' }} align="right">View Details</TableCell>
+                <TableCell  style={{ color: 'white' }}  align="center">Patient First Name</TableCell>
+                <TableCell  style={{ color: 'white' }}  align="center">Patient Last Name</TableCell>
+                <TableCell  style={{ color: 'white' }} align="center">Date of Birth</TableCell>
+                <TableCell  style={{ color: 'white' }} align="center">Patient #</TableCell>
+                <TableCell  style={{ color: 'white' }} align="center">View Details</TableCell>
               </TableRow>
             </TableHead>
             <TableBody color='white'>
@@ -116,16 +117,16 @@ const PatientList = () => {
                   key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th"  scope="row"  style={{ color: 'white' }}>
+                  <TableCell component="th"  scope="row"  style={{ color: 'white' }} align="center">
                     {row.firstName}
                   </TableCell>
-                  <TableCell component="th" scope="row"  style={{ color: 'white' }}>
+                  <TableCell component="th" scope="row"  style={{ color: 'white' }} align="center">
                     {row.lastName}
                   </TableCell>
-                  <TableCell  style={{ color: 'white' }} align="right">{row.dob}</TableCell>
-                  <TableCell  style={{ color: 'white' }} align="right">{row.patientNumber}</TableCell>
-                  <TableCell  style={{ color: 'white' }} align='right'>
-                  <div className="search-action">
+                  <TableCell  style={{ color: 'white' }} align="center">{row.dob}</TableCell>
+                  <TableCell  style={{ color: 'white' }} align="center">{row.patientNumber}</TableCell>
+                  <TableCell  style={{ color: 'white' }} align='center'>
+                  <div className="centered-button">
                   <ButtonTypeOne
                       onClick={handleView}
                       text={'View'}
@@ -145,6 +146,7 @@ const PatientList = () => {
         <button>Log Out</button></div> */}
         </ThemeProvider>
         </CentreRectangle>
+
         </div>
       );
 }

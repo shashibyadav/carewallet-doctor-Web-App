@@ -15,6 +15,7 @@
     .dob-field{
         width: 30%;
         margin-left: auto;
+        margin-right: 0rem;
     }
 }
 
@@ -93,3 +94,22 @@
    
 }
 
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .table-header-row {
+    color: white;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .table-content{
+  color: white;
+  align-items: center;
+
+  }
