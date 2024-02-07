@@ -13,11 +13,14 @@ import patientimg from '../images/patient_img.png';
 import copyicon from '../images/copy_icon.png';
 import GreenCheckmark from '../images/GreenCheckmark.png';
 import ID from '../images/license.png';
+import Insurance_Front from '../images/insurance_front.png';
+import Insurance_Back from '../images/insurance_back.png';
 import ButtonTypeOne from '../shared/buttonTypeOne';
 import CentreRectangle from '../shared/CentreRectangle';
 import "../styles/patient-data/patient-data.css";
 import LogoFooter from "./shared/LogoFooter";
 import ButtonPatientSearch from "./shared/ButtonPatientSearch";
+import LogOutButton from "./shared/ButtonLogOut.jsx";
 
 const accent = brown['400'];
 
@@ -46,7 +49,8 @@ const PatientList = () => {
   const [policyNumber, setpolicyNumber] = useState(criteria.policyNumber);
   const [groupNumber, setgroupNumber] = useState(criteria.groupNumber);
   const [policyHDOB, setpolicyHDOB] = useState(criteria.policyHDOB);
-  const [showImage, setShowImage] = useState(false);
+  const [showId, setShowId] = useState(false);
+  const [showInsurance, setShowInsurance] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const updateState = (newCriteria) => {
@@ -64,26 +68,33 @@ const PatientList = () => {
 
   const handleViewId = () => {
     // Toggle the visibility of the image
-    setShowImage(!showImage);
+    setShowId(!showId);
+  };
+
+  const handleViewInsurance = () => {
+    // Toggle the visibility of the image
+    setShowInsurance(!showInsurance);
   };
 
 
-  const handleCloseImage = () => {
-    setShowImage(false);
-  };
+  // const handleCloseImage = () => {
+  //   setShowImage(false);
+  // };
 
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#1C1C1D' }}>
-      <CentreRectangle className='center-rectangle-2'>
+   
+     <div className={`patient-list-page`}>
+      <LogOutButton />
+      <CentreRectangle className='patientdata-center-rectangle'>
 
         <div className='grid-container' >
           <div className='data-grid-1'  >
-            <h3 style={{ color: 'white', width: '100%', justifyContent: 'center', textAlign: 'center', fontSize: '1.5rem', fontWeight: '400' }}>
-              Patient: <span style={{ fontSize: '1.5rem', fontWeight: '700' }}>Evan Smith</span>
+            <h3 class="patient-name">
+              Patient: <span >Evan Smith</span>
             </h3>
 
-            <img src={patientimg} alt="Care Wallet Logo" style={{ height: '40%', width: '40%', margin: '10px', marginBottom: '2rem' }} />
+            <img src={patientimg} alt="Patient-Image" class="patient-image" />
             <div className='input-container'>
               <img src={copyicon} alt="Copy Icon" className="copy-icon" />
               <input
@@ -105,6 +116,26 @@ const PatientList = () => {
           </div>
           <div className='data-grid-2'  >
             <div className='data-grid-2-container'  >
+
+              {showInsurance && (
+                <> 
+                <div className="user-insurance-image-container">
+
+                    <div className="user-insurance-front-container">
+                    <img src={Insurance_Front} alt="Your Image" className="user-insurance-image" />
+                  </div>
+                  <div className="user-insurance-back-container">
+                    <img src={Insurance_Back} alt="Your Image" className="user-insurance-image" />
+                  </div>
+                  </div>
+                </>
+              )}
+
+              {!showInsurance && (
+                <>
+
+            <div className='input-form-container'>
+
               <div className='input-container'>
                 <img src={copyicon} alt="Copy Icon" className="copy-icon" />
                 <input
@@ -175,11 +206,14 @@ const PatientList = () => {
                 <ButtonTypeOne text='View ID' className='button-type-one' onClick={handleViewId} ></ButtonTypeOne>
 
               </div>
+              </div>
+              </>
+              )}
             </div>
           </div>
           <div className='data-grid-3'  >
             <div className='data-grid-3-container'  >
-              {showImage && (
+              {showId && (
                 <>
                   <div className="user-id-image-container">
                     <img src={ID} alt="Your Image" className="user-id-image" />
@@ -187,7 +221,7 @@ const PatientList = () => {
                 </>
               )}
 
-              {!showImage && (
+              {!showId && (
                 <>
 
                   <div className='status-container'>
@@ -250,7 +284,7 @@ const PatientList = () => {
 
 
                   <div className="search-action">
-                    <ButtonTypeOne text='View Insurance' className='patientdata-button-type-one'  ></ButtonTypeOne>
+                    <ButtonTypeOne text='View Insurance' className='patientdata-button-type-one'   onClick={handleViewInsurance} > </ButtonTypeOne>
                   </div>
                   <div className="search-action">
                     <ButtonTypeOne text='View Activity Log' className='patientdata-button-type-one'  ></ButtonTypeOne>

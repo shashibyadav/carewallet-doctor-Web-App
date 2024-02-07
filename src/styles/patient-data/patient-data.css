@@ -1,4 +1,25 @@
-.center-rectangle-2 {
+.patient-list-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1C1C1D;
+ 
+
+.patientdata-center-rectangle{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 70%;
+  background: rgba(217, 217, 217, 0);
+  border-radius: 42px;
+  border: 3px white solid;
+  color: white;
+ 
 
 
 
@@ -27,6 +48,31 @@
       box-sizing: border-box;
       width: 100%;
       height: 100%;
+
+      .patient-name {
+        color: white;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+
+       
+      }
+
+      .patient-name span {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .patient-image {
+        height: 40%;
+        width: 40%;
+        margin: 10px;
+        margin-bottom: 2rem;
+      }
+      
+      
       .input-container {
         position: relative;
         display: flex;
@@ -101,15 +147,73 @@
       height: 100%;
 
       .data-grid-2-container {
-        position: relative;
+        position: absolute;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         width: 100%;
-        margin-top: auto;
-        margin-top: -80px; 
+    
+       
         height: 100%;
+
+        .input-form-container{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        
+     
+        }
+
+        .user-insurance-image-container{
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 42px;
+          border: 3px white solid;
+          color: white;
+          margin: 2rem;
+          .user-insurance-front-container{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+   
+
+            .user-insurance-image{
+              width: 95%;
+              height: 100%;
+            }
+
+            
+
+          }
+
+          .user-insurance-back-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  
+
+           .user-insurance-image{
+             width: 95%;
+             height: 100%;
+           }
+
+           
+
+         }
+
+          
+       
+
+         
+         
+        }
 
 
         .search-action {
@@ -204,6 +308,7 @@
       width: 100%;
       height: 100%;
 
+
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
@@ -215,8 +320,8 @@
         align-items: center;
         width: 100%;
         box-sizing: border-box;
-
-        margin-top: -20px; 
+       
+     
 
         height: 100%;
 
@@ -326,17 +431,27 @@
         }
 
 
-        .user-id-image {
-          height: 80%;
-          width: 80%;
-
-
-        }
+       
 
         .user-id-image-container {
+         
           display: flex;
           justify-content: center;
           align-items: center;
+          border-radius: 42px;
+          border: 3px white solid;
+          color: white;
+          margin-right: 4rem;
+          margin-top: 4rem;
+          margin-bottom: 4rem;
+          width: 80%;
+          height: 80%;
+      
+          .user-id-image {
+            height: 90%;
+            width: 90%;
+  
+          }
 
         }
 
@@ -381,5 +496,7 @@
   position: absolute;
   width: 16%;
   left: 11%;
+
+}
 
 }
