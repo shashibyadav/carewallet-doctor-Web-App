@@ -1,0 +1,502 @@
+.patient-list-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1C1C1D;
+ 
+
+.patientdata-center-rectangle{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 70%;
+  background: rgba(217, 217, 217, 0);
+  border-radius: 42px;
+  border: 3px white solid;
+  color: white;
+ 
+
+
+
+  .grid-container {
+    position: absolute;
+    display: grid;
+    grid-template-areas:
+      "grid-1  grid-2  grid-3";
+    grid-template-columns: repeat(3, 1fr);
+   
+    box-sizing: border-box;
+   
+    border-radius: 3rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .data-grid-1 {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      grid-area: grid-1;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+
+      .patient-name {
+        color: white;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+
+       
+      }
+
+      .patient-name span {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .patient-image {
+        height: 40%;
+        width: 40%;
+        margin: 10px;
+        margin-bottom: 2rem;
+      }
+      
+      
+      .input-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        width: 60%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: rgba(102, 102, 102, 0.30);
+        border-radius: 0.5rem;
+        height: 7%;
+        margin: 0.5rem;
+
+
+        .patientdata-search-fields {
+          display: flex;
+          height: 20%;
+          width: 100%;
+          padding: 1rem;
+          border: none;
+          border-radius: 5px;
+          box-sizing: border-box;
+          margin-right: 0rem;
+          background-color: transparent;
+          color: white;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+
+
+
+        }
+
+        .patientdata-search-fields::placeholder {
+          color: #FFF;
+
+          font-size: 1.1rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+
+        .copy-icon {
+
+          position: absolute;
+
+          height: 1.5rem;
+          width: 8%;
+
+          left: 3%;
+
+          cursor: pointer;
+        }
+      }
+
+
+    }
+
+
+    .data-grid-2 {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      grid-area: grid-2;
+
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+
+      .data-grid-2-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    
+       
+        height: 100%;
+
+        .input-form-container{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        
+     
+        }
+
+        .user-insurance-image-container{
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 42px;
+          border: 3px white solid;
+          color: white;
+          margin: 2rem;
+          .user-insurance-front-container{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+   
+
+            .user-insurance-image{
+              width: 95%;
+              height: 100%;
+            }
+
+            
+
+          }
+
+          .user-insurance-back-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  
+
+           .user-insurance-image{
+             width: 95%;
+             height: 100%;
+           }
+
+           
+
+         }
+
+          
+       
+
+         
+         
+        }
+
+
+        .search-action {
+          display: flex;
+          width: 60%;
+
+          justify-content: center;
+          align-items: center;
+
+          .button-type-one {
+            display: flex;
+            width: 100%;
+            height: 3%;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+          }
+
+
+        }
+
+        .input-container {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          box-sizing: border-box;
+          width: 60%;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: rgba(102, 102, 102, 0.30);
+          border-radius: 0.5rem;
+          height: 7%;
+          margin: 0.5rem;
+
+
+          .patientdata-search-fields {
+            display: flex;
+            height: 20%;
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-right: 0rem;
+            background-color: transparent;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+
+
+          }
+
+          .patientdata-search-fields::placeholder {
+            color: #FFF;
+
+            font-size: 1.1rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+
+          .copy-icon {
+
+            position: absolute;
+
+            height: 1.5rem;
+            width: 8%;
+
+            left: 3%;
+
+            cursor: pointer;
+          }
+        }
+
+
+
+
+      }
+
+
+
+    }
+
+    .data-grid-3 {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      grid-area: grid-3;
+      width: 100%;
+      height: 100%;
+
+
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+
+      .data-grid-3-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+       
+     
+
+        height: 100%;
+
+        .status-container {
+          
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          height: 10%;
+          width: 60%;
+          padding: 4%;
+
+          .active-icon {
+            height: 100%;
+            width: 20%;
+          }
+
+          .active-status {
+            display: flex;
+            color: green;
+            margin-right: 2rem;
+
+          }
+
+        }
+
+
+
+        .search-action {
+          display: flex;
+          width: 60%;
+
+          justify-content: center;
+          align-items: center;
+
+          .button-type-one {
+            display: flex;
+            width: 100%;
+            height: 3%;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+          }
+
+
+        }
+
+        .input-container {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          box-sizing: border-box;
+          width: 60%;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: rgba(102, 102, 102, 0.30);
+          border-radius: 0.5rem;
+          height: 7%;
+          margin: 0.5rem;
+
+
+
+
+          .patientdata-search-fields {
+            display: flex;
+            height: 20%;
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-right: 0rem;
+            background-color: transparent;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+
+
+          }
+
+          .patientdata-search-fields::placeholder {
+            color: #FFF;
+
+            font-size: 1.1rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+
+          .copy-icon {
+
+            position: absolute;
+            height: 1.5rem;
+            width: 8%;
+            left: 3%;
+            cursor: pointer;
+          }
+
+
+
+
+
+        }
+
+
+       
+
+        .user-id-image-container {
+         
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 42px;
+          border: 3px white solid;
+          color: white;
+          margin-right: 4rem;
+          margin-top: 4rem;
+          margin-bottom: 4rem;
+          width: 80%;
+          height: 80%;
+      
+          .user-id-image {
+            height: 90%;
+            width: 90%;
+  
+          }
+
+        }
+
+
+
+
+      }
+
+
+
+    }
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+.search-button {
+
+  bottom: 7%;
+  position: absolute;
+  width: 16%;
+  left: 42%;
+}
+
+.referrals-button {
+
+  bottom: 7%;
+  position: absolute;
+  width: 16%;
+  left: 11%;
+
+}
+
+}

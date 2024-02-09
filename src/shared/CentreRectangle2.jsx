@@ -15,7 +15,7 @@ const CentreRectangle2 = ({ children }) => {
           borderRadius: '42px',
           border: '3px white solid',
           color: 'white',
-          backgroundColor:'#f1eee7'
+          backgroundColor:'#1C1C1D'
         }}>
           {children}
       </div>

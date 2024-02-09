@@ -7,11 +7,9 @@
         width: 100%;
         margin-bottom: 6%;
         font-size: 29px;
+        font-weight: 700;
     }
-    .button-style {
-        width: 100px;
-        height: 20px;
-    }
+
     .content-holder {
         display: flex;
         flex-direction: column;
@@ -24,17 +22,49 @@
     }
     .button-holder {
         width: 100%;
-        text-align: right;
         margin-top: 4%;
+        
     }
 
-    .search-fields {
+    .button-style {
+        width: 100px;
+        height: 20px;
         display: block;
-        width: 130%;
+        margin-left: auto; 
+    }
+
+    .landingpage-search-fields {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
         padding: 10px;
         margin-bottom: 10px;
+        margin-right: 0rem;
         border: none;
         border-radius: 5px;
         align-items: center;
+        justify-content: center;
+        align-items: center;   
+        background-color:  rgba(102, 102, 102, 0.30);
+        color: white;
       }
+
+      .landingpage-search-fields::placeholder {
+        color: #FFF;
+
+        text-align: center;
+      
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+    }
+
+    .input-field-container{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        color: white;
+        align-items: center;
+    }
 }

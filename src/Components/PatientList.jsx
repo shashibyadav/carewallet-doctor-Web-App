@@ -1,62 +1,26 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
-import CentreRectangle2 from '../shared/CentreRectangle2';
 import { useSelector, useDispatch } from 'react-redux';
+import CentreRectangle from '../shared/CentreRectangle';
 import '../shared/button.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { setPatientCriteria as setCriteriaAction } from '../ReduxStore/Slices/Search/searchSlice';
-import { brown } from '@mui/material/colors';
-
-const CentreRectangle3 = ({ children }) => {
-  return (
-    <div style={{textAlign:'center'}}>
-      <div style={{
-        position: 'absolute',
-        top: '55%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        display: 'flex',
-        width: '70%',
-        height: '50%',
-        background: 'rgba(217, 217, 217, 0)',
-        borderRadius: '10px',
-        border: '3px white solid',
-        color: 'white',
-      }}>
-        {children}
-    </div>
-    </div>
-  );
-};
-
-const accent = brown['400']; 
-
-const inputProps = {
-  style: {
-    height: '5px',
-    color: accent, 
-  },
-};
+import "../styles/patient-list/patient-list.css";
+import InputField from "../shared/inputField";
+import ButtonTypeOne from "./shared/ButtonTypeOne";
+import ButtonPatientSearch from "./shared/ButtonPatientSearch";
+import LogoFooter from "./shared/LogoFooter";
+import LogOutButton from "./shared/ButtonLogOut.jsx";
 
 
-const whiteTheme = createTheme({ palette: { primary: {main:accent} } })
 
 const PatientList = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
   const [lastName, setLastName] = useState(criteria.lastName);
   const [firstName, setFirstName] = useState(criteria.firstName);
-  const [dob, setdob] = useState(criteria.dob); 
+  const [dob, setdob] = useState(criteria.dob);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const updateState = (newCriteria) => {
     dispatch(setCriteriaAction(newCriteria));
   };
@@ -66,73 +30,132 @@ const PatientList = () => {
       ...criteria,
       firstName: firstName,
     });
-    console.log('Search for:', { firstName,lastName, dob });
+    console.log('Search for:', { firstName, lastName, dob });
     navigate('/PatientData');
   };
-  
-  function createData(firstName,lastName, dob, patientNumber) {
-    return { firstName,lastName, dob, patientNumber};
+
+  function createData(firstName, lastName, dob, patientNumber) {
+    return { firstName, lastName, dob, patientNumber };
   }
-  
-  const rows = [
-    createData('John','Smith', '12-01-2022', '734-221-3024'),
-    createData('John', 'Smith', '12-01-2022', '734-221-3024'),
-    createData('John', 'Smith', '12-01-2022', '734-221-3024'),
-  ];
+
+  const handleFirstNameChange = (value) => {
+    setFirstName(value);
+  };
+
+  const handleLastNameChange = (value) => {
+    setLastName(value);
+  };
+
+  const handleDOBChange = (value) => {
+    setdob(value);
+  };
+
+
+
+
 
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: '#f8f6f1' }}> 
-        <CentreRectangle2>
-        <ThemeProvider theme={whiteTheme}>
-          <div style={{ padding:'5%', alignItems:'center'}}>
-          <TextField label="First Name" margin="normal" inputProps={inputProps} value={firstName} style={{marginRight:'5px'}} onChange={(e) => setFirstName(e.target.value)}/>
-          <TextField id="outlined-basic"  margin="normal"label="Last Name" variant="outlined" color="primary" inputProps={inputProps}  value={lastName} style={{marginRight:'5px'}} onChange={(e) => setLastName(e.target.value)}/>
-          <TextField id="outlined-basic"  margin="normal" label="Date of Birth" variant="outlined"  color="primary" inputProps={inputProps} value={dob} onChange={(e) => setdob(e.target.value)}/>
+    <div className={`patient-list-page`}>
+      <LogOutButton />
+      <CentreRectangle className='patientlist-center-rectangle'>
+   
+          <div className='input-fields-container'>
+
+            <InputField
+              className='patientlist-search-fields'
+              value={firstName}
+              placeholder="First Name"
+              onChange={handleFirstNameChange}
+            />
+
+
+            <InputField
+              className='patientlist-search-fields lastname-field'
+              value={lastName}
+              placeholder="Last Name"
+              onChange={handleLastNameChange}
+            />
+
+            <InputField
+              className='patientlist-search-fields  dob-field'
+              value={dob}
+              placeholder="Date of Birth (calendar)"
+              onChange={handleDOBChange}
+            />
+
           </div>
-          <CentreRectangle3>
-          <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Patient First Name</TableCell>
-                <TableCell>Patient Last Name</TableCell>
-                <TableCell align="right">Date of Birth</TableCell>
-                <TableCell align="right">Patient #</TableCell>
-                <TableCell align="right">View Details</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow
-                  key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.firstName}
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    {row.lastName}
-                  </TableCell>
-                  <TableCell align="right">{row.dob}</TableCell>
-                  <TableCell align="right">{row.patientNumber}</TableCell>
-                  <TableCell align='right'>
-                  <div className="search-action">
-                    <button onClick={handleView}>View</button>
+          <CentreRectangle className='center-rectangle-3' >
+            
+          <div className="table-container">
+              <table className='center-rectangle-3-table' >
+                <thead>
+                  <tr className='table-column-hover'>
+                    <th className='table-column-header'>Patient First Name</th>
+                    <th className='table-column-header'>Patient Last Name</th>
+                    <th className='table-column-header'>Date of Birth</th>
+                    <th className='table-column-header'>Patient #</th>
+                    <th className='table-column-header'>View Details</th>
+                  </tr>
+                </thead>
+                <tbody className='table-column-body'>
+               
+                  <tr className='table-column-hover'>
+                    <td className='table-column'>John</td>
+                    <td className='table-column'>Doe</td>
+                    <td className='table-column'>1990-01-01</td>
+                    <td className='table-column'>12345</td>
+                    <td className='table-column'><div className="centered-button">
+                  <ButtonTypeOne
+                      onClick={handleView}
+                      text={'View'}
+                      className={'patientlist-button-type-one'}
+                  />
                   </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        </CentreRectangle3>
-        <div style={{position:'absolute', left:'45%' , bottom:'25px'}} className="search-action">
-        <button>Patient Search</button></div>
-        <div style={{position:'absolute', right:'5%' , top:'5%'}} className="search-action">
-        <button>Log Out</button></div>
-        </ThemeProvider>
-        </CentreRectangle2>
-        </div>
-      );
+                  </td>
+                   
+                  </tr>
+                  <tr className='table-column-hover'>
+                    <td className='table-column'>Jane</td>
+                    <td className='table-column'>Smith</td>
+                    <td className='table-column'>1985-05-15</td>
+                    <td className='table-column'>67890</td>
+                    <td className='table-column'> <div className="centered-button">
+                  <ButtonTypeOne
+                      onClick={handleView}
+                      text={'View'}
+                      className={'patientlist-button-type-one'}
+                  />
+                  </div>
+                  </td>
+                  </tr>
+
+                  < tr className='table-column-hover'>
+                    <td className='table-column'>Jane</td>
+                    <td className='table-column'>Smith</td>
+                    <td className='table-column'>1985-05-15</td>
+                    <td className='table-column'>67890</td>
+                    <td className='table-column'> <div className="centered-button">
+                  <ButtonTypeOne
+                      onClick={handleView}
+                      text={'View'}
+                      className={'patientlist-button-type-one'}
+                  />
+                  </div>
+                  </td>
+                  </tr>
+           
+                </tbody>
+              </table>
+              </div>
+          
+          </CentreRectangle>
+     
+      </CentreRectangle>
+      <ButtonPatientSearch className={`button-type-two`} onClick={() => { }} text={`Patient Search`} />
+
+      <LogoFooter />
+
+    </div>
+  );
 }
 export default PatientList;

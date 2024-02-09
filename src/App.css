@@ -66,13 +66,13 @@ label {
   margin-bottom: 5px;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: none;
   border-radius: 5px;
-}
+} */
 
 .patient-actions button {
   background-color: #673AB7; 

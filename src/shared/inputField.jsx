@@ -1,19 +1,21 @@
 // InputField.js
 
 import React from 'react';
+import "./inputField.css";
 
-const InputField = ({ label, value, onChange, placeholder, className }) => {
+
+const InputField = ({ value, onChange, placeholder, className }) => {
   return (
-    <div>
-      <label>{label}</label>
+    
+      
       <input
         type="text"
         value={value || ''} 
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={className}
+        className={"input-field-type-one " + className}
       />
-    </div>
+  
   );
 };
 

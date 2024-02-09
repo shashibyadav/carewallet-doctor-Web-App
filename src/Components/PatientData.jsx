@@ -1,7 +1,4 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import CentreRectangle2 from '../shared/CentreRectangle2';
-import Grid from '@mui/material/Grid';
 import { useSelector, useDispatch } from 'react-redux';
 import '../shared/button.css';
 import '../shared/shared.css';
@@ -9,11 +6,21 @@ import '../shared/buttonTypeOne.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setPatientDataCriteria as setCriteriaAction } from '../ReduxStore/Slices/Search/patientSlice';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+
 import { brown } from '@mui/material/colors';
 import patientimg from '../images/patient_img.png';
+
+import copyicon from '../images/copy_icon.png';
 import GreenCheckmark from '../images/GreenCheckmark.png';
+import ID from '../images/license.png';
+import Insurance_Front from '../images/insurance_front.png';
+import Insurance_Back from '../images/insurance_back.png';
 import ButtonTypeOne from '../shared/buttonTypeOne';
+import CentreRectangle from '../shared/CentreRectangle';
+import "../styles/patient-data/patient-data.css";
+import LogoFooter from "./shared/LogoFooter";
+import ButtonPatientSearch from "./shared/ButtonPatientSearch";
+import LogOutButton from "./shared/ButtonLogOut.jsx";
 
 const accent = brown['400'];
 
@@ -24,7 +31,7 @@ const inputProps = {
   },
 };
 
-const whiteTheme = createTheme({ palette: { primary: { main: accent } } })
+
 
 const PatientList = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
@@ -42,6 +49,8 @@ const PatientList = () => {
   const [policyNumber, setpolicyNumber] = useState(criteria.policyNumber);
   const [groupNumber, setgroupNumber] = useState(criteria.groupNumber);
   const [policyHDOB, setpolicyHDOB] = useState(criteria.policyHDOB);
+  const [showId, setShowId] = useState(false);
+  const [showInsurance, setShowInsurance] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const updateState = (newCriteria) => {
@@ -57,47 +66,240 @@ const PatientList = () => {
     navigate('/PatientData');
   };
 
+  const handleViewId = () => {
+    // Toggle the visibility of the image
+    setShowId(!showId);
+  };
+
+  const handleViewInsurance = () => {
+    // Toggle the visibility of the image
+    setShowInsurance(!showInsurance);
+  };
+
+
+  // const handleCloseImage = () => {
+  //   setShowImage(false);
+  // };
+
+
   return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: 'f8f6f1' }}>
-      <CentreRectangle2>
-        <ThemeProvider theme={whiteTheme}>
-          <Grid style={{ padding: '2%'}} container>
-            <Grid item xs={4}>
-              <h3 style={{ color: 'brown' }}>Patient: Evan Smith</h3>
-              <img src={patientimg} alt="Care Wallet Logo" style={{ height: '40%', width: '60%', margin: '10px' }} />
-              <TextField margin="normal" label="Phone Number" inputProps={inputProps} value={phoneNumber} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setPhoneNumber(e.target.value)} />
-              <TextField margin="normal" label="Email" inputProps={inputProps} value={email} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setEmail(e.target.value)} />
-            </Grid>
-            <Grid item xs={4}>
-              <TextField label="First Name" margin="normal" className='input-field' inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-              <TextField margin="normal" label="Last Name" inputProps={inputProps} value={lastName} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setLastName(e.target.value)} />
-              <TextField margin="normal" label="Date of Birth" inputProps={inputProps} value={dob} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setdob(e.target.value)} />
-              <TextField margin="normal" label="Address" inputProps={inputProps} value={address} style={{width:'80%' ,marginRight:'5px'}}  onChange={(e) => setAddress(e.target.value)} />
-              <TextField margin="normal" label="City" inputProps={inputProps} value={city} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setCity(e.target.value)} />
-              <TextField margin="normal" label="Zip Code" inputProps={inputProps} value={zipcode} style={{width:'80%' ,marginRight:'5px'}} onChange={(e) => setZipcode(e.target.value)} />
+   
+     <div className={`patient-list-page`}>
+      <LogOutButton />
+      <CentreRectangle className='patientdata-center-rectangle'>
+
+        <div className='grid-container' >
+          <div className='data-grid-1'  >
+            <h3 class="patient-name">
+              Patient: <span >Evan Smith</span>
+            </h3>
+
+            <img src={patientimg} alt="Patient-Image" class="patient-image" />
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={phoneNumber}
+                placeholder="Phone Number"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div className='input-container'>
+              <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+              <input
+                className='patientdata-search-fields'
+                value={email}
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className='data-grid-2'  >
+            <div className='data-grid-2-container'  >
+
+              {showInsurance && (
+                <> 
+                <div className="user-insurance-image-container">
+
+                    <div className="user-insurance-front-container">
+                    <img src={Insurance_Front} alt="Your Image" className="user-insurance-image" />
+                  </div>
+                  <div className="user-insurance-back-container">
+                    <img src={Insurance_Back} alt="Your Image" className="user-insurance-image" />
+                  </div>
+                  </div>
+                </>
+              )}
+
+              {!showInsurance && (
+                <>
+
+            <div className='input-form-container'>
+
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                <input
+                  className='patientdata-search-fields patientdata-firstname'
+                  value={firstName}
+                  placeholder="First Name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                <input
+                  className='patientdata-search-fields'
+                  value={lastName}
+                  placeholder="Last Name"
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
+
+
+
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                <input
+                  className='patientdata-search-fields'
+                  value={address}
+                  placeholder="Address"
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </div>
+
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                <input
+                  className='patientdata-search-fields'
+                  value={city}
+                  placeholder="City"
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </div>
+
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                <input
+                  className='patientdata-search-fields'
+                  value={state}
+                  placeholder="State"
+                  onChange={(e) => setstate(e.target.value)}
+                />
+              </div>
+
+
+
+              <div className='input-container'>
+                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                <input
+                  className='patientdata-search-fields'
+                  value={zipcode}
+                  placeholder="Zip Code"
+                  onChange={(e) => setZipcode(e.target.value)}
+                />
+              </div>
+
+
+
               <div className="search-action">
-          <ButtonTypeOne style='button-style' text='View ID' className='button-type-one'  ></ButtonTypeOne>
-          <div style={{display:'flex',marginRight:'2px' ,bottom:'0px',alignItems:'center'}}>
-        <div style={{marginRight:'10px'}}><ButtonTypeOne text='Referrals' className='button-style'></ButtonTypeOne></div>
-        <ButtonTypeOne text='Patient Search' className='button-style'></ButtonTypeOne>
-      </div>
-      </div>
-            </Grid>
-            <Grid item xs={4}>
-            <div style={{display:'flex'}}><img src={GreenCheckmark} alt="GreenCheckmark" style={{ height: '20%', width: '20%', margin: '10px' }} /><h3 style={{color:'green'}}>Active:01/24/2024</h3></div>
-              <TextField margin="normal" label="State" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={state} onChange={(e) => setstate(e.target.value)} />
-              <TextField margin="normal" label="Insurance Name" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={insuranceName} onChange={(e) => setinsuranceName(e.target.value)} />
-              <TextField margin="normal" label="Policy Holder DOB" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}}  value={policyHDOB} onChange={(e) => setpolicyHDOB(e.target.value)} />
-              <TextField margin="normal" label="Policy Name" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}} value={policyHName} onChange={(e) => setpolicyHName(e.target.value)} />
-              <TextField margin="normal" label="Group Number" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}}  value={groupNumber} onChange={(e) => setgroupNumber(e.target.value)} />
-              <TextField margin="normal" label="Policy Number" inputProps={inputProps} style={{width:'80%' ,marginRight:'5px'}}  value={policyNumber} onChange={(e) => setpolicyNumber(e.target.value)} />
-              <div className="search-action">
-            <ButtonTypeOne text='View Insurance' className='button-type-one'  ></ButtonTypeOne>
-      </div>
-            </Grid>
-          </Grid>
-        </ThemeProvider>
-      </CentreRectangle2>
+                <ButtonTypeOne text='View ID' className='button-type-one' onClick={handleViewId} ></ButtonTypeOne>
+
+              </div>
+              </div>
+              </>
+              )}
+            </div>
+          </div>
+          <div className='data-grid-3'  >
+            <div className='data-grid-3-container'  >
+              {showId && (
+                <>
+                  <div className="user-id-image-container">
+                    <img src={ID} alt="Your Image" className="user-id-image" />
+                  </div>
+                </>
+              )}
+
+              {!showId && (
+                <>
+
+                  <div className='status-container'>
+
+                    <img src={GreenCheckmark} alt="Activity Icon" className="active-icon" />
+                    <div className="active-status" ><h3 >Active:01/24/2024</h3></div>
+
+                  </div>
+
+                  <div className='input-container'>
+                    <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                    <input
+                      className='patientdata-search-fields'
+                      value={insuranceName}
+                      placeholder="Insurance Name"
+                      onChange={(e) => setinsuranceName(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='input-container'>
+                    <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                    <input
+                      className='patientdata-search-fields'
+                      value={policyHName}
+                      placeholder="Policyholder Name"
+                      onChange={(e) => setpolicyHName(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='input-container'>
+                    <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                    <input
+                      className='patientdata-search-fields'
+                      value={policyNumber}
+                      placeholder="Policy #"
+                      onChange={(e) => setpolicyNumber(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='input-container'>
+                    <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                    <input
+                      className='patientdata-search-fields'
+                      value={groupNumber}
+                      placeholder="Group #"
+                      onChange={(e) => setgroupNumber(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='input-container'>
+                    <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                    <input
+                      className='patientdata-search-fields'
+                      value={policyHDOB}
+                      placeholder="Policyholder DOB"
+                      onChange={(e) => setpolicyHDOB(e.target.value)}
+                    />
+                  </div>
+
+
+
+                  <div className="search-action">
+                    <ButtonTypeOne text='View Insurance' className='patientdata-button-type-one'   onClick={handleViewInsurance} > </ButtonTypeOne>
+                  </div>
+                  <div className="search-action">
+                    <ButtonTypeOne text='View Activity Log' className='patientdata-button-type-one'  ></ButtonTypeOne>
+                  </div>
+                </>
+              )}
+            </div>
+
+          </div>
+        </div>
+
+      </CentreRectangle>
+      <ButtonPatientSearch classname={`referrals-button`} onClick={() => { }} text={`Referrals`} />
+      <ButtonPatientSearch classname={`search-button`} onClick={() => { }} text={`Patient Search`} />
+      <LogoFooter />
     </div>
   );
 }

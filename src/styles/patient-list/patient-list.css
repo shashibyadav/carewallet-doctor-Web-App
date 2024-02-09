@@ -1,0 +1,211 @@
+.patient-list-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1C1C1D;
+   
+
+.patientlist-center-rectangle {
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 70%;
+    background: rgba(217, 217, 217, 0);
+    border-radius: 42px;
+    border: 3px white solid;
+    color: white;
+   
+    .input-fields-container{
+       
+        position: relative;
+        display: flex;
+        padding: 5%;
+       
+        
+        flex-direction: row;
+        justify-content: flex-start;
+        height: 8%;
+        width: 90%;
+       
+    
+    }
+
+
+    .patientlist-search-fields {
+        display: flex;
+        height: 40%;
+        width: 15%;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+    
+        align-items: center;
+        margin-right: 1rem;
+        justify-content: center;
+        align-items: center;   
+        background-color: rgba(102, 102, 102, 0.30);
+        color: white;
+      }
+    
+      .patientlist-search-fields::placeholder {
+        color: #FFF;
+    
+        text-align: center;
+      
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+    }
+    
+
+
+     
+    .dob-field{
+        width: 30%;
+        margin-left: auto;
+        margin-right: 0rem;
+    }
+
+    .center-rectangle-3 {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        box-sizing: border-box;
+   
+      
+
+        .table-container {
+          
+            overflow: auto;
+            width: 100%;
+            height: 25rem;
+         
+           
+   
+        
+    
+        .center-rectangle-3-table{
+           
+        
+            background-color: rgba(250, 250, 250, 0);
+            color: white ;
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 42px;
+            border: 3px white solid;
+            color: white;
+
+            height: 10rem;
+          
+            
+            box-sizing: border-box;
+        
+    
+       
+    
+          
+          .table-column-header, .table-column {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+          }
+          
+          .table-column-header {
+            background-color: #333;
+            color: white;
+          }
+          
+          .table-column-hover:hover {
+            background-color: rgb(88, 88, 88);
+
+            .patientlist-button-type-one{
+                display: flex;
+                width: 8rem;
+                height: 0.1rem;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-weight: 700;
+                padding: 1rem;
+            }
+          }
+          .table-header-row {
+            color: white;
+            align-items: center;
+            justify-content: center;
+        
+          }
+
+          .table-column-body{
+            height: 10rem;
+          }
+        
+          .table-content{
+          color: white;
+          align-items: center;
+        
+          }
+
+          .centered-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            .button-type-one  {
+
+                width: 100%;
+              }
+              
+
+          }
+        }
+    }
+}
+
+
+    
+    
+}
+
+
+
+
+.button-type-two  {
+
+    bottom: 7%;
+    position: absolute;
+    width: 16%;
+    left: 42%;
+  }
+  
+
+}
+
+
+
+
+
+
+/* .button-style {
+    display: flex;
+    width: 8rem;
+    height: 0.1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    padding: 1rem;
+   
+}
+
+ */
