@@ -33,7 +33,7 @@ const inputProps = {
 
 
 
-const PatientList = () => {
+const PatientData = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
   const [lastName, setLastName] = useState(criteria.lastName);
   const [firstName, setFirstName] = useState(criteria.firstName);
@@ -57,13 +57,13 @@ const PatientList = () => {
     dispatch(setCriteriaAction(newCriteria));
   };
 
-  const handleView = () => {
+  const handleViewActivity = () => {
     updateState({
       ...criteria,
       firstName: firstName,
     });
     console.log('Search for:', { firstName, lastName, dob, phoneNumber, email, address, city, state, zipcode, insuranceName, policyHName, policyNumber, groupNumber, policyHDOB });
-    navigate('/PatientData');
+    navigate('/PatientActivity');
   };
 
   const handleViewId = () => {
@@ -83,18 +83,18 @@ const PatientList = () => {
 
 
   return (
-   
-     <div className={`patient-list-page`}>
+
+    <div className={`patient-data-page`}>
       <LogOutButton />
       <CentreRectangle className='patientdata-center-rectangle'>
 
         <div className='grid-container' >
           <div className='data-grid-1'  >
-            <h3 class="patient-name">
+            <h3 className="patient-name">
               Patient: <span >Evan Smith</span>
             </h3>
 
-            <img src={patientimg} alt="Patient-Image" class="patient-image" />
+            <img src={patientimg} alt="Patient-Image" className="patient-image" />
             <div className='input-container'>
               <img src={copyicon} alt="Copy Icon" className="copy-icon" />
               <input
@@ -118,15 +118,15 @@ const PatientList = () => {
             <div className='data-grid-2-container'  >
 
               {showInsurance && (
-                <> 
-                <div className="user-insurance-image-container">
+                <>
+                  <div className="user-insurance-image-container">
 
                     <div className="user-insurance-front-container">
-                    <img src={Insurance_Front} alt="Your Image" className="user-insurance-image" />
-                  </div>
-                  <div className="user-insurance-back-container">
-                    <img src={Insurance_Back} alt="Your Image" className="user-insurance-image" />
-                  </div>
+                      <img src={Insurance_Front} alt="Your Image" className="user-insurance-image" />
+                    </div>
+                    <div className="user-insurance-back-container">
+                      <img src={Insurance_Back} alt="Your Image" className="user-insurance-image" />
+                    </div>
                   </div>
                 </>
               )}
@@ -134,80 +134,80 @@ const PatientList = () => {
               {!showInsurance && (
                 <>
 
-            <div className='input-form-container'>
+                  <div className='input-form-container'>
 
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
-                <input
-                  className='patientdata-search-fields patientdata-firstname'
-                  value={firstName}
-                  placeholder="First Name"
-                  onChange={(e) => setFirstName(e.target.value)}
-                />
-              </div>
+                    <div className='input-container'>
+                      <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                      <input
+                        className='patientdata-search-fields patientdata-firstname'
+                        value={firstName}
+                        placeholder="First Name"
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
 
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
-                <input
-                  className='patientdata-search-fields'
-                  value={lastName}
-                  placeholder="Last Name"
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </div>
-
-
-
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
-                <input
-                  className='patientdata-search-fields'
-                  value={address}
-                  placeholder="Address"
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-              </div>
-
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
-                <input
-                  className='patientdata-search-fields'
-                  value={city}
-                  placeholder="City"
-                  onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
-                <input
-                  className='patientdata-search-fields'
-                  value={state}
-                  placeholder="State"
-                  onChange={(e) => setstate(e.target.value)}
-                />
-              </div>
+                    <div className='input-container'>
+                      <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                      <input
+                        className='patientdata-search-fields'
+                        value={lastName}
+                        placeholder="Last Name"
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
 
 
 
-              <div className='input-container'>
-                <img src={copyicon} alt="Copy Icon" className="copy-icon" />
-                <input
-                  className='patientdata-search-fields'
-                  value={zipcode}
-                  placeholder="Zip Code"
-                  onChange={(e) => setZipcode(e.target.value)}
-                />
-              </div>
+                    <div className='input-container'>
+                      <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                      <input
+                        className='patientdata-search-fields'
+                        value={address}
+                        placeholder="Address"
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
+                    </div>
+
+                    <div className='input-container'>
+                      <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                      <input
+                        className='patientdata-search-fields'
+                        value={city}
+                        placeholder="City"
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </div>
+
+                    <div className='input-container'>
+                      <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                      <input
+                        className='patientdata-search-fields'
+                        value={state}
+                        placeholder="State"
+                        onChange={(e) => setstate(e.target.value)}
+                      />
+                    </div>
 
 
 
-              <div className="search-action">
-                <ButtonTypeOne text='View ID' className='button-type-one' onClick={handleViewId} ></ButtonTypeOne>
+                    <div className='input-container'>
+                      <img src={copyicon} alt="Copy Icon" className="copy-icon" />
+                      <input
+                        className='patientdata-search-fields'
+                        value={zipcode}
+                        placeholder="Zip Code"
+                        onChange={(e) => setZipcode(e.target.value)}
+                      />
+                    </div>
 
-              </div>
-              </div>
-              </>
+
+
+                    <div className="search-action">
+                      <ButtonTypeOne text='View ID' className='button-type-one' onClick={handleViewId} ></ButtonTypeOne>
+
+                    </div>
+                  </div>
+                </>
               )}
             </div>
           </div>
@@ -284,10 +284,10 @@ const PatientList = () => {
 
 
                   <div className="search-action">
-                    <ButtonTypeOne text='View Insurance' className='patientdata-button-type-one'   onClick={handleViewInsurance} > </ButtonTypeOne>
+                    <ButtonTypeOne text='View Insurance' className='patientdata-button-type-one' onClick={handleViewInsurance} > </ButtonTypeOne>
                   </div>
                   <div className="search-action">
-                    <ButtonTypeOne text='View Activity Log' className='patientdata-button-type-one'  ></ButtonTypeOne>
+                    <ButtonTypeOne text='View Activity Log' className='patientdata-button-type-one' onClick={handleViewActivity} ></ButtonTypeOne>
                   </div>
                 </>
               )}
@@ -303,4 +303,4 @@ const PatientList = () => {
     </div>
   );
 }
-export default PatientList;
+export default PatientData;

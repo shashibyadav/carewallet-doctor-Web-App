@@ -1,4 +1,4 @@
-.patient-list-page {
+.patient-data-page {
   width: 100vw;
   height: 100vh;
   background-color: #1C1C1D;
@@ -160,8 +160,11 @@
         .input-form-container{
           height: 100%;
           width: 100%;
+          /* margin-top: 4rem; */
           display: flex;
-          
+       
+       
+        
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -197,7 +200,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-  
+           
 
            .user-insurance-image{
              width: 95%;
@@ -441,7 +444,7 @@
           border-radius: 42px;
           border: 3px white solid;
           color: white;
-          margin-right: 4rem;
+       
           margin-top: 4rem;
           margin-bottom: 4rem;
           width: 80%;

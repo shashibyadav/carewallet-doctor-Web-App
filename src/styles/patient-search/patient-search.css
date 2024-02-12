@@ -26,6 +26,20 @@
         width: 70%;
         height: 100%;
         padding: 7%;
+
+        .button-holder {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 100%;
+            margin-top: 4%;
+            
+            .button-type-one{
+                width:30%;
+            }
+            
+        }
+        
     }
 
     .auto-fill {

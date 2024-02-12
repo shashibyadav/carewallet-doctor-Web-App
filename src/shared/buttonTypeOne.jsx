@@ -2,7 +2,7 @@ import React, {useRef, useState} from "react";
 import "../shared/buttonTypeOne.css"
 
 const ButtonTypeOne = (props = {}) => {
-    const { onClick, text = ``, classname = `` } = props;
+    const { onClick, text = ``, className = `` } = props;
     const [ ripple,  setRipple ] = useState(false);
     const [showSpan, setShowSpan] = useState(false);
     const parentRef = useRef(null);
@@ -23,7 +23,7 @@ const ButtonTypeOne = (props = {}) => {
         onClick && onClick(e);
     }
     return <>
-        <div className={"button-type-one " + classname} onClick={onClickTrigger}>
+        <div className={"button-type-one " + className} onClick={onClickTrigger}>
             {text}
             {showSpan ? <span style={{left: x, top: y}} className={'ripple-span '+ (ripple ? "ripple": '')}></span> : null}
         </div>

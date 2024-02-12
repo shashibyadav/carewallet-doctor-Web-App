@@ -154,7 +154,9 @@ const PatientSearch = () => {
               classname={'button-style'}
             />
           </div>
+          
         </div>
+
       </CentreRectangle>
       <LogoFooter />
 

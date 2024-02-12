@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import "../../shared/buttonTypeOne.css"
 
 const ButtonTypeOne = (props = {}) => {
-    const { onClick, text = ``, classname = `` , triggerClickInstantly = false} = props;
+    const { onClick, text = ``, className = `` , triggerClickInstantly = false} = props;
+    console.log('Received className:', className);
     const [ ripple,  setRipple ] = useState(false);
     const [showSpan, setShowSpan] = useState(false);
     const [x, setX] = useState();
@@ -24,7 +25,7 @@ const ButtonTypeOne = (props = {}) => {
         triggerClickInstantly && onClick && onClick(e);
     }
     return <>
-        <div className={"button-type-one " + classname} onClick={onClickTrigger}>
+        <div className={"button-type-one " + className} onClick={onClickTrigger}>
             {text}
             {showSpan ? <span style={{left: x, top: y}} className={'ripple-span '+ (ripple ? "ripple": '')}></span> : null}
         </div>
