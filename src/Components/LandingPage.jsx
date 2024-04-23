@@ -8,6 +8,7 @@ import "../styles/landing-page/landing-page.css";
 import "../styles/landing-page/landing-page.css";
 import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
+import { setStep } from '../ReduxStore/Slices/MultiStepProviderRegistration/multiStepSlice';
 
 const LandingPage = () => {
   const criteria = useSelector((state) => state.loginCredState.loginCredentials);
@@ -28,7 +29,6 @@ const LandingPage = () => {
     // console.log('Search for:', { NPI, password });
     navigate('/LandingPage');
   };
-
  
 
   const handleNpiChange = (value) => {
@@ -38,6 +38,11 @@ const LandingPage = () => {
   const handlePasswordChange = (value) => {
     setPassword(value);
   };
+
+  const handleSignUp = () => {
+    dispatch(setStep(1));
+    navigate('/MultiStepProviderRegistration');
+  }
 
 
   return (
@@ -65,6 +70,11 @@ const LandingPage = () => {
             <ButtonTypeOne
                 onClick={handleSearch}
                 text={'Login'}
+                classname={'button-style'}
+            />
+            <ButtonTypeOne
+                onClick={handleSignUp}
+                text={'Sign Up'}
                 classname={'button-style'}
             />
           </div>
