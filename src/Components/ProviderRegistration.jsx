@@ -16,7 +16,7 @@ import Stepper from "./shared/Stepper";
 
 const ProviderRegistration = () => {
   const registrationData = useSelector((state) => {
-    return state.providerRegistrationState.registrationForm;
+    return state?.providerRegistrationState?.registrationForm;
   });
   const step = useSelector((state) => state?.multiStepState?.step);
   const dispatch = useDispatch();

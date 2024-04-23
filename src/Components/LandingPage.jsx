@@ -9,6 +9,7 @@ import "../styles/landing-page/landing-page.css";
 import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
 import { setStep } from '../ReduxStore/Slices/MultiStepProviderRegistration/multiStepSlice';
+import { updateFormData } from '../ReduxStore/Slices/ProviderRegistration/providerRegistrationSlice';
 
 const LandingPage = () => {
   const criteria = useSelector((state) => state.loginCredState.loginCredentials);
@@ -40,6 +41,24 @@ const LandingPage = () => {
   };
 
   const handleSignUp = () => {
+    dispatch(updateFormData({
+      title: "",
+      firstName: "",
+      lastName: "",
+      npi: "",
+      primaryPhone: "",
+      secondaryPhone: "",
+      primaryEmail: "",
+      secondaryEmail: "",
+      password: "",
+      confirmPassword: "",
+      personalAddress: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+      noSecondaryPhone: false,
+    }));
     dispatch(setStep(1));
     navigate('/MultiStepProviderRegistration');
   }
