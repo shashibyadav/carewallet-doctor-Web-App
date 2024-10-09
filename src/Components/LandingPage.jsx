@@ -68,6 +68,9 @@ const LandingPage = () => {
                 classname={'button-style'}
             />
           </div>
+          <div className={'create-account-text'} onClick={() => navigate('/register')}>
+              Create An Account
+        </div>     
         </div>
       </CentreRectangle>
 
