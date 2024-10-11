@@ -7,7 +7,7 @@ import PatientSearch from './Components/PatientSearch';
 import PatientList from './Components/PatientList';
 import PatientData from './Components/PatientData';
 import SignUp from './Components/SignUp';
-
+import AddLocations from './Components/AddLocations';
 import Landing from './Components/LandingPage';
 import { store } from './ReduxStore/Setup/Store';
 import { Provider } from 'react-redux';
@@ -19,6 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<LandingPage />} />
         <Route path="/Register" element={<SignUp />} />
+        <Route path="/AddLocations" element={<AddLocations/>}/>
         <Route path="/LandingPage" element={<PatientSearch />} />
         <Route path="/PatientList" element={<PatientList />} />
         <Route path="/PatientData" element={<PatientData />} />

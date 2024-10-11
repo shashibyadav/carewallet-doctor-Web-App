@@ -15,7 +15,7 @@ const CreateAccount = () => {
 
   const handleCreate = () => {
     console.log(criteria.providerName, criteria.npi, criteria.email, criteria.password);
-    // backend integration
+    navigate('/AddLocations');
   };
 
   const handleProviderChange = (value) => {
@@ -69,7 +69,7 @@ const CreateAccount = () => {
           <div className={`button-holder`}>
             <ButtonTypeOne
               onClick={handleCreate}
-              text={'Register'}
+              text={'Next'}
               classname={'button-style'}
             />
           </div>
