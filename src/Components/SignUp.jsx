@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProviderName, setNPI, setEmail, setPassword } from '../ReduxStore/Slices/Login/registerSlice';
+import { setProviderName, setNPI, setEmail, setPassword, clearRegisterState } from '../ReduxStore/Slices/Login/registerSlice';
 import CentreRectangle from '../shared/CentreRectangle';
 import { useNavigate } from 'react-router-dom';
 import ButtonTypeOne from "./shared/ButtonTypeOne";
@@ -10,12 +10,23 @@ import "../styles/landing-page/landing-page.css";
 
 const CreateAccount = () => {
   const criteria = useSelector((state) => state.registerState.registerCredentials);
+  const [error, setError] = useState(null)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleCreate = () => {
+    const { providerName, npi, email, password } = criteria;  
+    const error = validateFields({ ...criteria });
+   
+    if (error) {
+      setError(error);  
+      return;
+    }
+
     console.log(criteria.providerName, criteria.npi, criteria.email, criteria.password);
-    navigate('/AddLocations');
+    dispatch(clearRegisterState())
+    setError(null)
+    navigate('/addlocations');
   };
 
   const handleProviderChange = (value) => {
@@ -34,6 +45,30 @@ const CreateAccount = () => {
     dispatch(setPassword(value));
   };
 
+  const validateFields = ({ providerName, npi, email, password }) => {
+    const npiPattern = /^[0-9]{10}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+
+    if (providerName.length < 3) {
+      return 'Enter a valid Provider Name';
+    }
+  
+    if (!npiPattern.test(npi)) {
+      return 'NPI must be a valid 10-digit number';
+    }
+  
+    if (!emailPattern.test(email)) {
+      return 'Please enter a valid email address';
+    }
+  
+    if (!passwordPattern.test(password)) {
+      return 'Password must be at least 8 characters long, contain one uppercase letter, and one special character';
+    }
+  
+    return null;  
+  };
+  
   return (
     <div className={'landing-page'}>
       <LogoHeader />
@@ -66,6 +101,7 @@ const CreateAccount = () => {
               onChange={handlePasswordChange}
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
           <div className={`button-holder`}>
             <ButtonTypeOne
               onClick={handleCreate}

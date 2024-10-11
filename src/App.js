@@ -11,7 +11,7 @@ import AddLocations from './Components/AddLocations';
 import Landing from './Components/LandingPage';
 import { store } from './ReduxStore/Setup/Store';
 import { Provider } from 'react-redux';
-import CreateAccount from './Components/SignUp';
+
 function App() {
   return (
     <Provider store={store}>

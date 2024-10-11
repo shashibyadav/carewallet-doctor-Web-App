@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLocationName, setAddress, setCity, setStateName, setZip, addLocation, clearLocations } from '../ReduxStore/Slices/Login/locationSlice';
 import { useNavigate } from 'react-router-dom';
@@ -9,39 +9,65 @@ import InputField from "../shared/inputField";
 import "../styles/landing-page/landing-page.css";
 
 const AddLocations = () => {
-  const { locationName, address, city, state, zip, locations } = useSelector((state) => state.locationsState);  // Access location data
-  const registerCredentials = useSelector((state) => state.registerState.registerCredentials);  // Access account data
+  const { locationName, address, city, state, zip, locations } = useSelector((state) => state.locationsState); 
+  const registerCredentials = useSelector((state) => state.registerState.registerCredentials);  
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  
   const handleAddLocation = () => {
-    if (locationName && address && city && state && zip) {
-      dispatch(addLocation());
-    } else {
-      console.log("Please fill in all fields to add a location.");
+    const validationError = validateAddressFields(locationName, address, city, state, zip);
+
+    if (validationError) {
+      setError(validationError);  
+      return;
     }
+
+    dispatch(addLocation());
+    setError(null)
   };
+  
 
   const handleRegister = () => {
-    // Combine the account and locations data
-    const accountData = { ...registerCredentials };  // Account data from registerState
-    const locationData = [...locations];  // Location data from locationsState
+    const accountData = { ...registerCredentials };  
+    const locationData = [...locations];  
 
-    // Call the backend or handle the data
+    // place holdeer for backend integration 
     sendDataToBackend(accountData, locationData);
-
-    // Clear locations after register (optional)
     dispatch(clearLocations());
-
-    // Redirect after registration
     navigate('/');
   };
 
-  // Dummy function to handle backend submission
+  const validateAddressFields = (locationName, address, city, state, zip) => {
+    const statePattern = /^[A-Z]{2}$/;
+    const zipPattern = /^[0-9]{5}$/;
+
+    if (locationName.length < 3) {
+      return 'Enter a valid Location Name';
+    }
+  
+    if (address.length < 5) {
+      return 'Enter a valid Address';
+    }
+  
+    if (!city || city.length < 3) {
+      return 'Enter a Valid City';
+    }
+  
+    if (!statePattern.test(state)) {
+      return 'Please enter a valid 2-letter state abbreviation';
+    }
+  
+    if (!zipPattern.test(zip)) {
+      return 'Please enter a valid 5-digit zip code';
+    }
+  
+    return null;  
+  };
+  
   const sendDataToBackend = (accountData, locationData) => {
-    console.log("Account Data:", accountData);  // Log or process account data
-    console.log("Location Data:", locationData);  // Log or process location data
-    // Add API call here
+    console.log("Account Data:", accountData);  
+    console.log("Location Data:", locationData);  
   };
 
   return (
@@ -65,25 +91,25 @@ const AddLocations = () => {
               onChange={(value) => dispatch(setAddress(value))}
             />
             <InputField
-              className='landingpage-search-fields'
+              className='landingpage-search-fields third'
               value={city}
               placeholder="City"
               onChange={(value) => dispatch(setCity(value))}
             />
             <InputField
-              className='landingpage-search-fields'
+              className='landingpage-search-fields third'
               value={state}
               placeholder="State"
               onChange={(value) => dispatch(setStateName(value))}
             />
             <InputField
-              className='landingpage-search-fields'
+              className='landingpage-search-fields third'
               value={zip}
               placeholder="Zip"
               onChange={(value) => dispatch(setZip(value))}
             />
           </div>
-
+          {error && <p className="error-message">{error}</p>}
           <div className={`button-holder`}>
             <ButtonTypeOne
               onClick={handleAddLocation}
@@ -92,27 +118,26 @@ const AddLocations = () => {
             />
           </div>
 
-          {/* Display the added locations */}
           <div className={'location-list'}>
-            <h4>Added Locations:</h4>
-            {locations.length > 0 ? (
+            <h4>Added Locations</h4>
+            {locations.length > 0 && (
               <ul>
                 {locations.map((loc, index) => (
-                  <li key={index}>{`${loc.locationName} - ${loc.address}, ${loc.city}, ${loc.state}, ${loc.zip}`}</li>
+                  <li key={index}>{`${loc.locationName} : ${loc.address}, ${loc.city}, ${loc.state}, ${loc.zip}`}</li>
                 ))}
               </ul>
-            ) : (
-              <p>No locations added yet.</p>
             )}
           </div>
 
-          <div className={`button-holder`}>
-            <ButtonTypeOne
-              onClick={handleRegister}  // Call handleRegister to process account and location data
-              text={'Register'}
-              classname={'button-style'}
-            />
-          </div>
+          {locations.length > 0 && (
+            <div className={`button-holder`}>
+              <ButtonTypeOne
+                onClick={handleRegister}  
+                text={'Register'}
+                classname={'button-style'}
+              />
+            </div>
+          )}
         </div>
       </CentreRectangle>
     </div>

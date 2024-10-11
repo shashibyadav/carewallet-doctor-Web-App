@@ -6,7 +6,7 @@ const initialState = {
   city: '',
   state: '',
   zip: '',
-  locations: [],  // Store added locations here
+  locations: [],  
 };
 
 export const locationsSlice = createSlice({
@@ -29,7 +29,6 @@ export const locationsSlice = createSlice({
       state.zip = action.payload;
     },
     addLocation: (state) => {
-      // Push the current state as a new location
       state.locations.push({
         locationName: state.locationName,
         address: state.address,
@@ -38,7 +37,7 @@ export const locationsSlice = createSlice({
         zip: state.zip,
       });
 
-      // Optionally, clear the input fields after adding
+      // clear the input fields after adding
       state.locationName = '';
       state.address = '';
       state.city = '';
