@@ -55,7 +55,7 @@ const CreateAccount = () => {
   const validateFields = ({ providerName, npi, email, password }) => {
     const npiPattern = /^[0-9]{10}$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/;
 
     if (providerName.length < 3) {
       return 'Enter a valid Provider Name';
@@ -70,7 +70,7 @@ const CreateAccount = () => {
     }
   
     if (!passwordPattern.test(password)) {
-      return 'Password must be at least 8 characters long, contain one uppercase letter, and one special character';
+      return 'Password must be at least 12 characters long, contain one uppercase letter, and one special character';
     }
   
     return null;  
