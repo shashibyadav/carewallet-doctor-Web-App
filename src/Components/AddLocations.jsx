@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
+import axiosInstance from '../utils/axiosInstance';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLocationName, setAddress, setCity, setStateName, setZip, addLocation, clearLocations } from '../ReduxStore/Slices/Login/locationSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { performLogin } from '../utils/performLogin';
 import CentreRectangle from '../shared/CentreRectangle';
 import ButtonTypeOne from "./shared/ButtonTypeOne";
 import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
 import "../styles/landing-page/landing-page.css";
+import { clearRegisterState } from '../ReduxStore/Slices/Login/registerSlice';
 
 const AddLocations = () => {
   const { locationName, address, city, state, zip, locations } = useSelector((state) => state.locationsState); 
@@ -14,7 +17,8 @@ const AddLocations = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+  const location = useLocation();  
+
   const handleAddLocation = () => {
     const validationError = validateAddressFields(locationName, address, city, state, zip);
 
@@ -22,22 +26,61 @@ const AddLocations = () => {
       setError(validationError);  
       return;
     }
-
     dispatch(addLocation());
     setError(null)
   };
   
+  const createAccount = async (accountData, locationData) => {
+    const payload = {
+      providerName: accountData.providerName,
+      npi: accountData.npi,
+      email: accountData.email,
+      password: accountData.password, 
+      locations: locationData.map(location => ({
+        locationName: location.locationName,
+        address: location.address,
+        city: location.city,
+        state: location.state,
+        zipcode: location.zip,
+      })),
+    };
+  
+    console.log('Payload:', payload);
+  
+    try {
+      // attempt to create doctor account
+      const response = await axiosInstance.post('/doctor/createDoctorAccount.ns', payload);
+      console.log('Account creation successful:', response.data);
+  
+      // attempt to login after succesful creation
+      const loginResult = await performLogin(accountData.email, accountData.password);
+      
+      if (loginResult.success) {
+        console.log('Doctor logged in successfully');
+        // navigation after successful login
+        navigate('/patientList');  
+      } else {
+        // failed performLogin, redirects user to manual logins creen
+        navigate('/');
+      }
+      
+    } catch (error) {
+      // failed createDoctor, redirects to first step of register
+      console.error('Error occurred during account creation or login:', error);
+      navigate('/register', { state: { errorMessage: 'Account creation failed. Try again.' } });
+    }
+  };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     const accountData = { ...registerCredentials };  
     const locationData = [...locations];  
 
-    // place holdeer for backend integration 
-    sendDataToBackend(accountData, locationData);
-    dispatch(clearLocations());
-    navigate('/');
-  };
+    await createAccount(accountData, locationData);
 
+    dispatch(clearLocations());
+    dispatch(clearRegisterState())
+  };
+  
   const validateAddressFields = (locationName, address, city, state, zip) => {
     const statePattern = /^[A-Z]{2}$/;
     const zipPattern = /^[0-9]{5}$/;
@@ -63,11 +106,6 @@ const AddLocations = () => {
     }
   
     return null;  
-  };
-  
-  const sendDataToBackend = (accountData, locationData) => {
-    console.log("Account Data:", accountData);  
-    console.log("Location Data:", locationData);  
   };
 
   return (

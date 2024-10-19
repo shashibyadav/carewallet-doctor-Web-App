@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setProviderName, setNPI, setEmail, setPassword, clearRegisterState } from '../ReduxStore/Slices/Login/registerSlice';
 import CentreRectangle from '../shared/CentreRectangle';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ButtonTypeOne from "./shared/ButtonTypeOne";
 import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
@@ -13,6 +13,14 @@ const CreateAccount = () => {
   const [error, setError] = useState(null)
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // check for errors from addLocations redirect
+  React.useEffect(() => {
+    if (location.state && location.state.errorMessage) {
+      setError(location.state.errorMessage);
+    }
+  }, [location.state]);
 
   const handleCreate = () => {
     const { providerName, npi, email, password } = criteria;  
@@ -24,7 +32,6 @@ const CreateAccount = () => {
     }
 
     console.log(criteria.providerName, criteria.npi, criteria.email, criteria.password);
-    dispatch(clearRegisterState())
     setError(null)
     navigate('/addlocations');
   };
