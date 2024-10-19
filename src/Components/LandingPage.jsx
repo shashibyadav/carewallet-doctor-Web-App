@@ -8,31 +8,44 @@ import "../styles/landing-page/landing-page.css";
 import "../styles/landing-page/landing-page.css";
 import LogoHeader from "./shared/LogoHeader";
 import InputField from "../shared/inputField";
+import { performLogin } from '../utils/performLogin';
 
 const LandingPage = () => {
   const criteria = useSelector((state) => state.loginCredState.loginCredentials);
-  const [NPI, setNpi] = useState(criteria.npi);
+  const [email, setEmail] = useState(criteria.email);
   const [password, setPassword] = useState(criteria.password); 
+  const [error, setError] = useState(null); // Error state to display login failure
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
   const updateState = (newCriteria) => {
     dispatch(setCriteriaAction(newCriteria));
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     updateState({
       ...criteria,
-      npi: NPI,
+      email: email,
       password: password,
     });
-    // console.log('Search for:', { NPI, password });
-    navigate('/LandingPage');
+
+    try {
+      const loginResult = await performLogin(email, password); 
+      if (loginResult.success) {
+        console.log('Doctor logged in successfully');
+        navigate('/patientlist'); 
+      } else {
+        setError('Login failed. Please check your email and password.'); 
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setError('An error occurred during login. Please try again.');
+    }
   };
 
  
 
-  const handleNpiChange = (value) => {
-    setNpi(value);
+  const handleEmailChange = (value) => {
+    setEmail(value);
   };
 
   const handlePasswordChange = (value) => {
@@ -49,9 +62,9 @@ const LandingPage = () => {
         <div className={'input-field-container'}>
            <InputField
               className='landingpage-search-fields'
-              value={NPI}
-              placeholder="NPI"
-              onChange={handleNpiChange}
+              value={email}
+              placeholder="Email"
+              onChange={handleEmailChange}
             />
 
           <InputField
@@ -68,6 +81,7 @@ const LandingPage = () => {
                 classname={'button-style'}
             />
           </div>
+          {error && <p className="error-message">{error}</p>}
           <div className={'create-account-text'} onClick={() => navigate('/register')}>
               Create An Account
         </div>     
