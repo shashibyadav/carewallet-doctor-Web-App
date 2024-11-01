@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import CentreRectangle from '../shared/CentreRectangle';
-import { setPatientSearchCriteria as setCriteriaAction } from '../ReduxStore/Slices/Login/loginSlice';
-import ButtonTypeOne from "./shared/ButtonTypeOne";
-import "../styles/patient-search/patient-search.css";
-import InputField from "../shared/inputField";
-import LogoFooter from "./shared/LogoFooter";
-import LogOutButton from "./shared/ButtonLogOut.jsx";
+import CentreRectangle from '../../shared/CentreRectangle.jsx';
+import { setPatientSearchCriteria as setCriteriaAction } from '../../ReduxStore/Slices/Login/loginSlice.js';
+import ButtonTypeOne from "../shared/ButtonTypeOne.jsx";
+import "../../styles/patient-search/patient-search.css";
+import InputField from "../../shared/inputField.jsx";
+import LogoFooter from "../shared/LogoFooter.jsx";
+import LogOutButton from "../shared/ButtonLogOut.jsx";
 
 
 const PatientSearch = () => {

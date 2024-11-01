@@ -1,0 +1,15 @@
+[
+    {
+      "path": "/",
+      "element": "LandingPage"
+    },
+    {
+      "path": "/Register",
+      "element": "SignUp"
+    },
+    {
+      "path": "/AddLocations",
+      "element": "AddLocations"
+    }
+  ]
+  

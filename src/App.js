@@ -1,30 +1,45 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CareWalletLogo from './images/CareWalletLogo.png';
-import LandingPage from './Components/LandingPage';
-import PatientSearch from './Components/PatientSearch';
-import PatientList from './Components/PatientList';
-import PatientData from './Components/PatientData';
-import SignUp from './Components/SignUp';
-import AddLocations from './Components/AddLocations';
-import Landing from './Components/LandingPage';
-import { store } from './ReduxStore/Setup/Store';
 import { Provider } from 'react-redux';
+import SetupConfig from './Components/setup/SetupApp';
+import { store } from './ReduxStore/Setup/Store';
+import allRoutes from './routes/allRoutes';
+
+import LandingPage from './Components/Register/LandingPage';
+import SignUp from './Components/Register/SignUp';
+import AddLocations from './Components/Register/AddLocations';
+import PatientSearch from './Components/LoggedIn/PatientSearch';
+import PatientList from './Components/LoggedIn/PatientList';
+import PatientData from './Components/LoggedIn/PatientData';
+
+const components = {
+  LandingPage,
+  SignUp,
+  AddLocations,
+  PatientSearch,
+  PatientList,
+  PatientData,
+};
 
 function App() {
   return (
     <Provider store={store}>
-    <Router>
-      <Routes>
-      <Route path="/" element={<LandingPage />} />
-        <Route path="/Register" element={<SignUp />} />
-        <Route path="/AddLocations" element={<AddLocations/>}/>
-        <Route path="/LandingPage" element={<PatientSearch />} />
-        <Route path="/PatientList" element={<PatientList />} />
-        <Route path="/PatientData" element={<PatientData />} />
-      </Routes>
-    </Router>
+      <Router>
+        <SetupConfig />
+        <Routes>
+          {allRoutes.map((route, index) => {
+            const Component = components[route.element];
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                element={<Component />}
+              />
+            );
+          })}
+        </Routes>
+      </Router>
     </Provider>
   );
 }

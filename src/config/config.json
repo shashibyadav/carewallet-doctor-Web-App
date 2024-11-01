@@ -1,0 +1,7 @@
+{
+    "environment": "dev",
+    "domain": {
+      "dev": "https://0pqjojts5c.execute-api.us-east-1.amazonaws.com"
+    }
+  }
+  

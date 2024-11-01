@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import axiosInstance from '../utils/axiosInstance';
+import axiosInstance from '../../utils/axiosInstance';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLocationName, setAddress, setCity, setStateName, setZip, addLocation, clearLocations } from '../ReduxStore/Slices/Login/locationSlice';
+import { setLocationName, setAddress, setCity, setStateName, setZip, addLocation, clearLocations } from '../../ReduxStore/Slices/Login/locationSlice';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { performLogin } from '../utils/performLogin';
-import CentreRectangle from '../shared/CentreRectangle';
-import ButtonTypeOne from "./shared/ButtonTypeOne";
-import LogoHeader from "./shared/LogoHeader";
-import InputField from "../shared/inputField";
-import "../styles/landing-page/landing-page.css";
-import { clearRegisterState } from '../ReduxStore/Slices/Login/registerSlice';
+import { performLogin } from '../../utils/performLogin';
+import CentreRectangle from '../../shared/CentreRectangle';
+import ButtonTypeOne from "../shared/ButtonTypeOne";
+import LogoHeader from "../shared/LogoHeader";
+import InputField from "../../shared/inputField";
+import "../../styles/landing-page/landing-page.css";
+import { clearRegisterState } from '../../ReduxStore/Slices/Login/registerSlice';
 
 const AddLocations = () => {
   const { locationName, address, city, state, zip, locations } = useSelector((state) => state.locationsState); 

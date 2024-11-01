@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CentreRectangle from '../shared/CentreRectangle';
-import '../shared/button.css';
+import CentreRectangle from '../../shared/CentreRectangle.jsx';
+import '../../shared/button.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setPatientCriteria as setCriteriaAction } from '../ReduxStore/Slices/Search/searchSlice';
-import "../styles/patient-list/patient-list.css";
-import InputField from "../shared/inputField";
-import ButtonTypeOne from "./shared/ButtonTypeOne";
-import ButtonPatientSearch from "./shared/ButtonPatientSearch";
-import LogoFooter from "./shared/LogoFooter";
-import LogOutButton from "./shared/ButtonLogOut.jsx";
+import { setPatientCriteria as setCriteriaAction } from '../../ReduxStore/Slices/Search/searchSlice.js';
+import "../../styles/patient-list/patient-list.css";
+import InputField from "../../shared/inputField.jsx";
+import ButtonTypeOne from "../shared/ButtonTypeOne.jsx";
+import ButtonPatientSearch from "../shared/ButtonPatientSearch.jsx";
+import LogoFooter from "../shared/LogoFooter.jsx";
+import LogOutButton from "../shared/ButtonLogOut.jsx";
 
 
 

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLoginCredentials as setCriteriaAction } from '../ReduxStore/Slices/Login/loginCredSlice';
-import CentreRectangle from '../shared/CentreRectangle';
+import { setLoginCredentials as setCriteriaAction } from '../../ReduxStore/Slices/Login/loginCredSlice';
+import CentreRectangle from '../../shared/CentreRectangle';
 import { useNavigate } from 'react-router-dom';
-import ButtonTypeOne from "./shared/ButtonTypeOne";
-import "../styles/landing-page/landing-page.css";
-import "../styles/landing-page/landing-page.css";
-import LogoHeader from "./shared/LogoHeader";
-import InputField from "../shared/inputField";
-import { performLogin } from '../utils/performLogin';
+import ButtonTypeOne from "../shared/ButtonTypeOne";
+import "../../styles/landing-page/landing-page.css";
+import "../../styles/landing-page/landing-page.css";
+import LogoHeader from "../shared/LogoHeader";
+import InputField from "../../shared/inputField";
+import { performLogin } from '../../utils/performLogin';
 
 const LandingPage = () => {
   const criteria = useSelector((state) => state.loginCredState.loginCredentials);

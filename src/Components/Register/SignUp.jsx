@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProviderName, setNPI, setEmail, setPassword, clearRegisterState } from '../ReduxStore/Slices/Login/registerSlice';
-import CentreRectangle from '../shared/CentreRectangle';
+import { setProviderName, setNPI, setEmail, setPassword, clearRegisterState } from '../../ReduxStore/Slices/Login/registerSlice';
+import CentreRectangle from '../../shared/CentreRectangle';
 import { useNavigate, useLocation } from 'react-router-dom';
-import ButtonTypeOne from "./shared/ButtonTypeOne";
-import LogoHeader from "./shared/LogoHeader";
-import InputField from "../shared/inputField";
-import "../styles/landing-page/landing-page.css";
+import ButtonTypeOne from ".././shared/ButtonTypeOne";
+import LogoHeader from ".././shared/LogoHeader";
+import InputField from "../../shared/inputField";
+import "../../styles/landing-page/landing-page.css";
 
 const CreateAccount = () => {
   const criteria = useSelector((state) => state.registerState.registerCredentials);
