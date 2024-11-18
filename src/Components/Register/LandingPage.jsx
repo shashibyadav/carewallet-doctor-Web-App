@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoginCredentials as setCriteriaAction } from '../../ReduxStore/Slices/Login/loginCredSlice';
 import CentreRectangle from '../../shared/CentreRectangle';
+import HeaderText from '../../shared/HeaderText';
+import ContentHolder from '../../shared/ContentHolder';
+import InputFieldContainer from '../../shared/InputFieldContainer';
 import { useNavigate } from 'react-router-dom';
 import ButtonTypeOne from "../shared/ButtonTypeOne";
-import "../../styles/landing-page/landing-page.css";
 import "../../styles/landing-page/landing-page.css";
 import LogoHeader from "../shared/LogoHeader";
 import InputField from "../../shared/inputField";
@@ -57,9 +59,9 @@ const LandingPage = () => {
     <div className={'landing-page'}>
       <LogoHeader />
       <CentreRectangle className='center-rectangle'>
-        <div className={`content-holder`}>
-        <div className={'header-text'}>Doctor Login</div>
-        <div className={'input-field-container'}>
+      <ContentHolder>
+      <HeaderText>Doctor Login</HeaderText>
+        <InputFieldContainer>
            <InputField
               className='landingpage-search-fields'
               value={email}
@@ -73,7 +75,7 @@ const LandingPage = () => {
                 placeholder="Password"
                 onChange={handlePasswordChange}
               />
-            </div>
+          </InputFieldContainer>
           <div className={`button-holder`}>
             <ButtonTypeOne
                 onClick={handleSearch}
@@ -85,7 +87,7 @@ const LandingPage = () => {
           <div className={'create-account-text'} onClick={() => navigate('/register')}>
               Create An Account
         </div>     
-        </div>
+        </ContentHolder>
       </CentreRectangle>
 
     </div>

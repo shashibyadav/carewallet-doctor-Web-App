@@ -1,0 +1,9 @@
+@import './theme.css';
+
+.header-text{
+    color: var(--header-color-one);
+    width: 100%;
+    margin-bottom: 6%;
+    font-size: var(--header-size-one);
+    font-weight: var(--header-weight-one);
+}

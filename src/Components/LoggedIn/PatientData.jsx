@@ -22,17 +22,6 @@ import LogoFooter from "../shared/LogoFooter.jsx";
 import ButtonPatientSearch from "../shared/ButtonPatientSearch.jsx";
 import LogOutButton from "../shared/ButtonLogOut.jsx";
 
-const accent = brown['400'];
-
-const inputProps = {
-  style: {
-    height: '5px',
-    color: accent,
-  },
-};
-
-
-
 const PatientList = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
   const [lastName, setLastName] = useState(criteria.lastName);
