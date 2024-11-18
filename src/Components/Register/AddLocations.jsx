@@ -45,7 +45,6 @@ const AddLocations = () => {
       })),
     };
   
-    console.log('Payload:', payload);
   
     try {
       // attempt to create doctor account
@@ -65,8 +64,6 @@ const AddLocations = () => {
       }
       
     } catch (error) {
-      // failed createDoctor, redirects to first step of register
-      console.error('Error occurred during account creation or login:', error);
       navigate('/register', { state: { errorMessage: 'Account creation failed. Try again.' } });
     }
   };

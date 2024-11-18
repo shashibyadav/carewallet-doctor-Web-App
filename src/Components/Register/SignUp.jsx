@@ -31,7 +31,6 @@ const CreateAccount = () => {
       return;
     }
 
-    console.log(criteria.providerName, criteria.npi, criteria.email, criteria.password);
     setError(null)
     navigate('/addlocations');
   };

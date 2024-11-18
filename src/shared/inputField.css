@@ -1,3 +1,9 @@
 .input-field-type-one {
     text-align: center;
 }
+.half {
+    width: 48%;
+}
+.third {
+    width: 32%;
+}
