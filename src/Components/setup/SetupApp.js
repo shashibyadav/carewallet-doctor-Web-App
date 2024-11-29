@@ -10,7 +10,8 @@ const SetupConfig = () => {
     const requestInterceptor = axiosInstance.interceptors.request.use(
       (config) => {
         if (!config.params || !config.params.sessionID) {
-          console.log('Unauthorized. Please login again.');
+          const currentRoute = location.pathname;
+
           if (currentRoute !== '/') {
             navigate('/');
           }
@@ -40,17 +41,15 @@ const SetupConfig = () => {
             case 403:
               console.log('Access is denied.');
               break;
-            case 404:
-              console.log('Resource not found.');
-              break;
+              // add more standard html codes here
             default:
               console.log(`Unexpected Error: ${status} - ${error.response.statusText}`);
               break;
           }
         } else if (error.request) {
-          console.error('No response received from');
+          console.log('No response error code received');
         } else {
-          console.error('Unknown error');
+          console.log('Unknown error');
         }
 
         return Promise.reject(error);

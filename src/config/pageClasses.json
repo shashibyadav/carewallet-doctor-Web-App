@@ -1,0 +1,9 @@
+{
+    "/": "landing-page-class",
+    "/signup": "signup-page-class",
+    "/add-locations": "add-locations-class",
+    "/patient-search": "patient-search-class",
+    "/patient-list": "patient-list-class",
+    "/patient-data": "patient-data-class"
+  }
+  
