@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import SetupConfig from './Components/setup/SetupApp';
 import { store } from './ReduxStore/Setup/Store';
 import allRoutes from './routes/allRoutes';
-
 import LandingPage from './Components/Register/LandingPage';
 import SignUp from './Components/Register/SignUp';
 import AddLocations from './Components/Register/AddLocations';

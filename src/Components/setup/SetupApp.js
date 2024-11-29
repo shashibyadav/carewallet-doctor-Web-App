@@ -8,20 +8,17 @@ const SetupConfig = () => {
 
   useEffect(() => {
     const requestInterceptor = axiosInstance.interceptors.request.use(
-      // pass successful request
-      (config) => config, 
-      (error) => {
-        if (error.message) {
-          if (error.message.includes('Network Error')) {
-            console.log('Network Error. Please check your internet connection.');
-          } else if (error.message.includes('timeout')) {
-            console.log('Timeout exceeded. The request took too long to complete.');
-          } else {
-            console.log(`Request Error: ${error.message}`);
+      (config) => {
+        if (!config.params || !config.params.sessionID) {
+          console.log('Unauthorized. Please login again.');
+          if (currentRoute !== '/') {
+            navigate('/');
           }
-        } else {
-          console.error('Request Error: An unknown error occurred during the request.');
         }
+        return config;
+      },
+      (error) => {
+        console.error('Request Error:', error.message);
         return Promise.reject(error);
       }
     );
@@ -45,9 +42,6 @@ const SetupConfig = () => {
               break;
             case 404:
               console.log('Resource not found.');
-              break;
-            case 500:
-              console.log('Please verify request information.');
               break;
             default:
               console.log(`Unexpected Error: ${status} - ${error.response.statusText}`);
