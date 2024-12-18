@@ -17,7 +17,6 @@ const AddLocations = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();  
 
   const handleAddLocation = () => {
     const validationError = validateAddressFields(locationName, address, city, state, zip);
@@ -47,19 +46,14 @@ const AddLocations = () => {
   
   
     try {
-      // attempt to create doctor account
       const response = await axiosInstance.post('/doctor/createDoctorAccount.ns', payload);
       console.log('Account creation successful:', response.data);
   
-      // attempt to login after succesful creation
       const loginResult = await performLogin(accountData.email, accountData.password);
       
       if (loginResult.success) {
-        console.log('Doctor logged in successfully');
-        // navigation after successful login
         navigate('/patientList');  
       } else {
-        // failed performLogin, redirects user to manual logins creen
         navigate('/');
       }
       

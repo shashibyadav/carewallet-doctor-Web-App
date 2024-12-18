@@ -15,7 +15,6 @@ const CreateAccount = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // check for errors from addLocations redirect
   React.useEffect(() => {
     if (location.state && location.state.errorMessage) {
       setError(location.state.errorMessage);

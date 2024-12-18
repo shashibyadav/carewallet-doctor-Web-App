@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
+import { requiresAuth } from '../../utils/pagesAuth'; 
 
 const SetupConfig = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const SetupConfig = () => {
         if (!config.params || !config.params.sessionID) {
           const currentRoute = location.pathname;
 
-          if (currentRoute !== '/') {
+          if (requiresAuth(currentRoute)) {
             navigate('/');
           }
         }
@@ -25,7 +26,7 @@ const SetupConfig = () => {
     );
 
     const responseInterceptor = axiosInstance.interceptors.response.use(
-      (response) => response, 
+      (response) => response,
       (error) => {
         if (error.response) {
           const { status } = error.response;
@@ -34,14 +35,13 @@ const SetupConfig = () => {
           switch (status) {
             case 401:
               console.log('Unauthorized. Please login again.');
-              if (currentRoute !== '/') {
+              if (requiresAuth(currentRoute)) {
                 navigate('/');
               }
               break;
             case 403:
               console.log('Access is denied.');
               break;
-              // add more standard html codes here
             default:
               console.log(`Unexpected Error: ${status} - ${error.response.statusText}`);
               break;
@@ -56,7 +56,6 @@ const SetupConfig = () => {
       }
     );
 
-    // cleanup
     return () => {
       axiosInstance.interceptors.request.eject(requestInterceptor);
       axiosInstance.interceptors.response.eject(responseInterceptor);

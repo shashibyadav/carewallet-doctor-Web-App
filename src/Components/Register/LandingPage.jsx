@@ -16,7 +16,7 @@ const LandingPage = () => {
   const criteria = useSelector((state) => state.loginCredState.loginCredentials);
   const [email, setEmail] = useState(criteria.email);
   const [password, setPassword] = useState(criteria.password); 
-  const [error, setError] = useState(null); // Error state to display login failure
+  const [error, setError] = useState(null); 
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
   const updateState = (newCriteria) => {
