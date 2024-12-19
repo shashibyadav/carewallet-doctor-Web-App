@@ -6,8 +6,6 @@ import "./inputField.css";
 
 const InputField = ({ value, onChange, placeholder, className }) => {
   return (
-    
-      
       <input
         type="text"
         value={value || ''} 

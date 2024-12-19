@@ -1,0 +1,32 @@
+{
+  "LandingPage": {
+    "path": "/",
+    "requiresAuth": false,
+    "classes": []
+  },
+  "SignUp": {
+    "path": "/register",
+    "requiresAuth": false,
+    "classes": []
+  },
+  "AddLocations": {
+    "path": "/add-locations",
+    "requiresAuth": false,
+    "classes": []
+  },
+  "PatientSearch": {
+    "path": "/patient-search",
+    "requiresAuth": true,
+    "classes": []
+  },
+  "PatientList": {
+    "path": "/patient-list",
+    "requiresAuth": true,
+    "classes": []
+  },
+  "PatientData": {
+    "path": "/patient-data",
+    "requiresAuth": true,
+    "classes": []
+  }
+}

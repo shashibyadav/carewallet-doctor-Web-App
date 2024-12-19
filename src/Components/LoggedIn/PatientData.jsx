@@ -1,37 +1,26 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import '../shared/button.css';
-import '../shared/shared.css';
-import '../shared/buttonTypeOne.css';
+import '../../shared/button.css';
+import '../../shared/shared.css';
+import '../../shared/buttonTypeOne.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setPatientDataCriteria as setCriteriaAction } from '../ReduxStore/Slices/Search/patientSlice';
+import { setPatientDataCriteria as setCriteriaAction } from '../../ReduxStore/Slices/Search/patientSlice.js';
 
 import { brown } from '@mui/material/colors';
-import patientimg from '../images/patient_img.png';
+import patientimg from '../../images/patient_img.png';
 
-import copyicon from '../images/copy_icon.png';
-import GreenCheckmark from '../images/GreenCheckmark.png';
-import ID from '../images/license.png';
-import Insurance_Front from '../images/insurance_front.png';
-import Insurance_Back from '../images/insurance_back.png';
-import ButtonTypeOne from '../shared/buttonTypeOne';
-import CentreRectangle from '../shared/CentreRectangle';
-import "../styles/patient-data/patient-data.css";
-import LogoFooter from "./shared/LogoFooter";
-import ButtonPatientSearch from "./shared/ButtonPatientSearch";
-import LogOutButton from "./shared/ButtonLogOut.jsx";
-
-const accent = brown['400'];
-
-const inputProps = {
-  style: {
-    height: '5px',
-    color: accent,
-  },
-};
-
-
+import copyicon from '../../images/copy_icon.png';
+import GreenCheckmark from '../../images/GreenCheckmark.png';
+import ID from '../../images/license.png';
+import Insurance_Front from '../../images/insurance_front.png';
+import Insurance_Back from '../../images/insurance_back.png';
+import ButtonTypeOne from '../../shared/buttonTypeOne.jsx';
+import CentreRectangle from '../../shared/CentreRectangle.jsx';
+import "../../styles/patient-data/patient-data.css";
+import LogoFooter from "../shared/LogoFooter.jsx";
+import ButtonPatientSearch from "../shared/ButtonPatientSearch.jsx";
+import LogOutButton from "../shared/ButtonLogOut.jsx";
 
 const PatientList = () => {
   const criteria = useSelector((state) => state.loginState.searchCriteria);
