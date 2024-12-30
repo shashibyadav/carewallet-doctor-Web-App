@@ -14,6 +14,11 @@
     "requiresAuth": false,
     "classes": []
   },
+  "Locations": {
+    "path": "/locations",
+    "requiresAuth": false,
+    "classes": []
+  },
   "PatientSearch": {
     "path": "/patient-search",
     "requiresAuth": true,

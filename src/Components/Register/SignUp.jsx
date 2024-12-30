@@ -31,7 +31,7 @@ const CreateAccount = () => {
     }
 
     setError(null)
-    navigate('/addlocations');
+    navigate('/add-locations');
   };
 
   const handleProviderChange = (value) => {
