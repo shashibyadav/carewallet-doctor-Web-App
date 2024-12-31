@@ -43,10 +43,10 @@ const AddLocations = () => {
         zipcode: location.zip,
       })),
     };
-  
+    console.log(payload)
   
     try {
-      const response = await axiosInstance.post('/doctor/createDoctorAccount.ns', payload);
+      const response = await axiosInstance.post('/doctor/onboarding/createDoctorAccount.ns', payload);
       console.log('Account creation successful:', response.data);
   
       const loginResult = await performLogin(accountData.email, accountData.password);

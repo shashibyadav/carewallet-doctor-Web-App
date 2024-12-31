@@ -1,7 +1,7 @@
 {
-    "environment": "dev",
+    "environment": "doctortest",
     "domain": {
-      "dev": "https://0pqjojts5c.execute-api.us-east-1.amazonaws.com"
-    }
+      "dev": "https://0pqjojts5c.execute-api.us-east-1.amazonaws.com",
+      "doctortest": "https://xk1e6adva4.execute-api.us-east-1.amazonaws.com"
   }
-  
+}
