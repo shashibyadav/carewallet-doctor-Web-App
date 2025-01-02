@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CentreRectangle from '../../shared/CentreRectangle';
+import CenterRectangle from '../../shared/CenterRectangle';
 import HeaderText from '../../shared/HeaderText';
 import ContentHolder from '../../shared/ContentHolder';
 import LogoHeader from '../shared/LogoHeader';
@@ -42,7 +42,7 @@ const Locations = () => {
   return (
     <div className='landing-page'>
       <LogoHeader />
-      <CentreRectangle className='center-rectangle'>
+      <CenterRectangle className='center-rectangle'>
         <ContentHolder>
           <HeaderText text="Select a Location" />
 
@@ -63,7 +63,7 @@ const Locations = () => {
           )}
 
         </ContentHolder>
-      </CentreRectangle>
+      </CenterRectangle>
     </div>
   );
 };

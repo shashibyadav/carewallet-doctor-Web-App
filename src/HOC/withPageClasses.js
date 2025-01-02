@@ -1,4 +1,5 @@
 import React from 'react';
+import '../shared/layouts.css'
 
 const withPageClasses = (WrappedComponent, classes) => {
   return (props) => (

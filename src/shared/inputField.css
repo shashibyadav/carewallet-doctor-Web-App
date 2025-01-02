@@ -1,9 +1,27 @@
 .input-field-type-one {
     text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color:  rgba(102, 102, 102, 0.30);
+    color: white;
+    width: 100%;
 }
-.half {
+
+.input-field-type-one::placeholder {
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.input-field-type-one.half {
     width: 48%;
 }
-.third {
+.input-field-type-one.third {
     width: 32%;
 }

@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setProviderName, setNPI, setEmail, setPassword, clearRegisterState } from '../../ReduxStore/Slices/Login/registerSlice';
-import CentreRectangle from '../../shared/CentreRectangle';
+import CentreRectangle from '../../shared/CenterRectangle';
+import Container from '../../shared/Container';
+import ContentHolder from '../../shared/ContentHolder';
+import InputFieldContainer from '../../shared/InputFieldContainer';
+import HeaderText from '../../shared/HeaderText';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ButtonTypeOne from ".././shared/ButtonTypeOne";
 import LogoHeader from ".././shared/LogoHeader";
 import InputField from "../../shared/inputField";
 import "../../styles/landing-page/landing-page.css";
+import ActionText from '../../shared/ActionText';
 
 const CreateAccount = () => {
   const criteria = useSelector((state) => state.registerState.registerCredentials);
@@ -15,7 +20,7 @@ const CreateAccount = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (location.state && location.state.errorMessage) {
       setError(location.state.errorMessage);
     }
@@ -75,51 +80,49 @@ const CreateAccount = () => {
   };
   
   return (
-    <div className={'landing-page'}>
+    <Container className={'landing-page'}>
       <LogoHeader />
       <CentreRectangle className='center-rectangle'>
-        <div className={`content-holder`}>
-          <div className={'header-text'}>Create Account</div>
-          <div className={'input-field-container'}>
+        <ContentHolder>
+          <HeaderText>Create Account</HeaderText>
+          <InputFieldContainer>
             <InputField
-              className='landingpage-search-fields'
+              className='input-field-type-one'
               value={criteria.providerName}
               placeholder="Provider Name"
               onChange={handleProviderChange}
             />
             <InputField
-              className='landingpage-search-fields'
+              className='input-field-type-one'
               value={criteria.npi}
               placeholder="NPI"
               onChange={handleNpiChange}
             />
             <InputField
-              className='landingpage-search-fields'
+              className='input-field-type-one'
               value={criteria.email}
               placeholder="Email"
               onChange={handleEmailChange}
             />
             <InputField
-              className='landingpage-search-fields'
+              className='input-field-type-one'
               value={criteria.password}
               placeholder="Password"
               onChange={handlePasswordChange}
             />
-          </div>
+          </InputFieldContainer>
           {error && <p className="error-message">{error}</p>}
-          <div className={`button-holder`}>
             <ButtonTypeOne
               onClick={handleCreate}
               text={'Next'}
               classname={'button-style'}
             />
-          </div>
-          <div className={'create-account-text'} onClick={() => navigate('/')}>
+          <ActionText onClick={() => navigate('/')}>
             Already Have an Account?
-        </div>   
-        </div>
+        </ActionText>   
+        </ContentHolder>
       </CentreRectangle>
-    </div>
+    </Container>
   );
 };
 

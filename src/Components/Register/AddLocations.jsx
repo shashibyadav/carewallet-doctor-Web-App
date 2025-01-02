@@ -4,7 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setLocationName, setAddress, setCity, setStateName, setZip, addLocation, clearLocations } from '../../ReduxStore/Slices/Login/locationSlice';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { performLogin } from '../../utils/performLogin';
-import CentreRectangle from '../../shared/CentreRectangle';
+import CenterRectangle from '../../shared/CenterRectangle';
+import ContentHolder from '../../shared/ContentHolder';
+import HeaderText from '../../shared/HeaderText';
+import InputFieldContainer from '../../shared/InputFieldContainer';
+import ActionText from '../../shared/ActionText';
+import Container from '../../shared/Container';
 import ButtonTypeOne from "../shared/ButtonTypeOne";
 import LogoHeader from "../shared/LogoHeader";
 import InputField from "../../shared/inputField";
@@ -100,13 +105,13 @@ const AddLocations = () => {
   };
 
   return (
-    <div className={'landing-page'}>
+    <Container className={'landing-page'}>
       <LogoHeader />
-      <CentreRectangle className='center-rectangle'>
-        <div className={`content-holder`}>
-          <div className={'header-text'}>Add Locations</div>
+      <CenterRectangle className='center-rectangle'>
+        <ContentHolder>
+          <HeaderText>Add Locations</HeaderText>
 
-          <div className={'input-field-container'}>
+          <InputFieldContainer>
             <InputField
               className='landingpage-search-fields'
               value={locationName}
@@ -137,17 +142,14 @@ const AddLocations = () => {
               placeholder="Zip"
               onChange={(value) => dispatch(setZip(value))}
             />
-          </div>
+          </InputFieldContainer>
           {error && <p className="error-message">{error}</p>}
-          <div className={`button-holder`}>
             <ButtonTypeOne
               onClick={handleAddLocation}
               text={'Add Location'}
               classname={'button-style'}
             />
-          </div>
 
-          <div className={'location-list'}>
             <h4>Added Locations</h4>
             {locations.length > 0 && (
               <ul>
@@ -156,20 +158,17 @@ const AddLocations = () => {
                 ))}
               </ul>
             )}
-          </div>
 
           {locations.length > 0 && (
-            <div className={`button-holder`}>
               <ButtonTypeOne
                 onClick={handleRegister}  
                 text={'Register'}
                 classname={'button-style'}
               />
-            </div>
           )}
-        </div>
-      </CentreRectangle>
-    </div>
+        </ContentHolder>
+      </CenterRectangle>
+    </Container>
   );
 };
 

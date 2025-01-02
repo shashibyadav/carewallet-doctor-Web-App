@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CentreRectangle from '../../shared/CentreRectangle.jsx';
+import CenterRectangle from '../../shared/CenterRectangle.jsx';
 import '../../shared/button.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -57,7 +57,7 @@ const PatientList = () => {
   return (
     <div className={`patient-list-page`}>
       <LogOutButton />
-      <CentreRectangle className='patientlist-center-rectangle'>
+      <CenterRectangle className='patientlist-center-rectangle'>
    
           <div className='input-fields-container'>
 
@@ -84,7 +84,7 @@ const PatientList = () => {
             />
 
           </div>
-          <CentreRectangle className='center-rectangle-3' >
+          <CenterRectangle className='center-rectangle-3' >
             
           <div className="table-container">
               <table className='center-rectangle-3-table' >
@@ -148,9 +148,9 @@ const PatientList = () => {
               </table>
               </div>
           
-          </CentreRectangle>
+          </CenterRectangle>
      
-      </CentreRectangle>
+      </CenterRectangle>
       <ButtonPatientSearch className={`button-type-two`} onClick={() => { }} text={`Patient Search`} />
 
       <LogoFooter />

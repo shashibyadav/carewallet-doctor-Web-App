@@ -98,14 +98,6 @@ label {
   margin-top: 0;
 }
 
-.container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-}
-
 .rectangle {
   height: 400px;
   width: 500px;
@@ -127,7 +119,6 @@ label {
 .body {
   margin: 0;
   padding: 0;
-  background-color: black;
 }
 
 .topbox {

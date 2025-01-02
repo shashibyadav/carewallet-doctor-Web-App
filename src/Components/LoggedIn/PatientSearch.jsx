@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setSearchCriteria } from '../../ReduxStore/Slices/Search/patientSearchSlice';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/patient-search/patient-search.css';
-import CentreRectangle from '../../shared/CentreRectangle.jsx';
+import CenterRectangle from '../../shared/CenterRectangle.jsx';
 import InputField from '../../shared/inputField.jsx';
 import ButtonTypeOne from '../shared/ButtonTypeOne.jsx';
 import LogoFooter from '../shared/LogoFooter.jsx';
@@ -37,7 +37,7 @@ const PatientSearch = () => {
 
   return (
     <div className="patient-search">
-      <CentreRectangle className="center-rectangle">
+      <CenterRectangle className="center-rectangle">
         <div className="content-holder">
           <div className="header-text">Patient Search</div>
           <div className="input-field-container">
@@ -79,7 +79,7 @@ const PatientSearch = () => {
             />
           </div>
         </div>
-      </CentreRectangle>
+      </CenterRectangle>
       <LogoFooter />
     </div>
   );
