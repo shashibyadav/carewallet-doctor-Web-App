@@ -1,3 +1,5 @@
+@import "react-datepicker/dist/react-datepicker.css";
+
 .patient-search {
     width: 100vw;
     height: 100vh;

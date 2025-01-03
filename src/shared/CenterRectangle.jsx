@@ -1,6 +1,6 @@
 import "../styles/shared/center-rectangle.css";
 
-const CentreRectangle = ({className, children }) => {
+const CenterRectangle = ({className, children }) => {
     return (
         <div className={`${className}`}>
           {children}
@@ -8,4 +8,4 @@ const CentreRectangle = ({className, children }) => {
     );
   };
 
-export default CentreRectangle;
+export default CenterRectangle;

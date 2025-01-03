@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoginCredentials as setCriteriaAction } from '../../ReduxStore/Slices/Login/loginCredSlice';
-import CentreRectangle from '../../shared/CentreRectangle';
+import CentreRectangle from '../../shared/CenterRectangle';
 import HeaderText from '../../shared/HeaderText';
+import ActionText from '../../shared/ActionText';
 import ContentHolder from '../../shared/ContentHolder';
 import InputFieldContainer from '../../shared/InputFieldContainer';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +12,7 @@ import "../../styles/landing-page/landing-page.css";
 import LogoHeader from "../shared/LogoHeader";
 import InputField from "../../shared/inputField";
 import { performLogin } from '../../utils/performLogin';
+import Container from '../../shared/Container';
 
 const LandingPage = () => {
   const criteria = useSelector((state) => state.loginCredState.loginCredentials);
@@ -56,7 +58,7 @@ const LandingPage = () => {
 
 
   return (
-    <div className={'landing-page'}>
+    <Container className={'landing-page'}>
       <LogoHeader />
       <CentreRectangle className='center-rectangle'>
       <ContentHolder>
@@ -76,21 +78,21 @@ const LandingPage = () => {
                 onChange={handlePasswordChange}
               />
           </InputFieldContainer>
-          <div className={`button-holder`}>
             <ButtonTypeOne
                 onClick={handleSearch}
                 text={'Login'}
                 classname={'button-style'}
             />
-          </div>
           {error && <p className="error-message">{error}</p>}
-          <div className={'create-account-text'} onClick={() => navigate('/register')}>
-              Create An Account
-        </div>     
+          <ActionText
+        onClick={() => navigate('/register')}
+      >
+        Create An Account
+      </ActionText>
         </ContentHolder>
       </CentreRectangle>
 
-    </div>
+    </Container>
   );
 };
 

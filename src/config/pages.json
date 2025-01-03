@@ -2,15 +2,20 @@
   "LandingPage": {
     "path": "/",
     "requiresAuth": false,
-    "classes": []
+    "classes": ["layout-one"]
   },
   "SignUp": {
     "path": "/register",
     "requiresAuth": false,
-    "classes": []
+    "classes": ["layout-one"]
   },
   "AddLocations": {
     "path": "/add-locations",
+    "requiresAuth": false,
+    "classes": ["layout-one"]
+  },
+  "Locations": {
+    "path": "/locations",
     "requiresAuth": false,
     "classes": []
   },

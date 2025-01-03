@@ -9,6 +9,7 @@ import withPageClasses from './HOC/withPageClasses';
 import LandingPage from './Components/Register/LandingPage';
 import SignUp from './Components/Register/SignUp';
 import AddLocations from './Components/Register/AddLocations';
+import Locations from './Components/LoggedIn/Locations'
 import PatientSearch from './Components/LoggedIn/PatientSearch';
 import PatientList from './Components/LoggedIn/PatientList';
 import PatientData from './Components/LoggedIn/PatientData';
@@ -17,6 +18,7 @@ const components = {
   LandingPage,
   SignUp,
   AddLocations,
+  Locations,
   PatientSearch,
   PatientList,
   PatientData,

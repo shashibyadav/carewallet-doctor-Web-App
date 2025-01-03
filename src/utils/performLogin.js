@@ -2,10 +2,11 @@ import axiosInstance from './axiosInstance';
 
 export const performLogin = async (email, password) => {
   try {
-    const response = await axiosInstance.post('/doctor-authentication/doctor-login.ns', {
+    const response = await axiosInstance.post('/doctor/authentication/doctor-login.ns', {
       email: email,
       password: password,
     });
+    console.log(response)
 
     if (response.data.success) {
       return { success: true, data: response.data };

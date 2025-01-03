@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "../../shared/buttonPatientSearch.css";
-import CentreRectangle from '../../shared/CentreRectangle';
+import CenterRectangle from '../../shared/CenterRectangle';
 
 
 

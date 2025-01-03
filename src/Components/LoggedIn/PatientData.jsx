@@ -16,7 +16,7 @@ import ID from '../../images/license.png';
 import Insurance_Front from '../../images/insurance_front.png';
 import Insurance_Back from '../../images/insurance_back.png';
 import ButtonTypeOne from '../../shared/buttonTypeOne.jsx';
-import CentreRectangle from '../../shared/CentreRectangle.jsx';
+import CenterRectangle from '../../shared/CenterRectangle.jsx';
 import "../../styles/patient-data/patient-data.css";
 import LogoFooter from "../shared/LogoFooter.jsx";
 import ButtonPatientSearch from "../shared/ButtonPatientSearch.jsx";
@@ -75,7 +75,7 @@ const PatientList = () => {
    
      <div className={`patient-list-page`}>
       <LogOutButton />
-      <CentreRectangle className='patientdata-center-rectangle'>
+      <CenterRectangle className='patientdata-center-rectangle'>
 
         <div className='grid-container' >
           <div className='data-grid-1'  >
@@ -285,7 +285,7 @@ const PatientList = () => {
           </div>
         </div>
 
-      </CentreRectangle>
+      </CenterRectangle>
       <ButtonPatientSearch classname={`referrals-button`} onClick={() => { }} text={`Referrals`} />
       <ButtonPatientSearch classname={`search-button`} onClick={() => { }} text={`Patient Search`} />
       <LogoFooter />
